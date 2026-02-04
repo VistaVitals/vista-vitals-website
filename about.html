@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Vista Vitals</title>
+  <meta name="description" content="Vista Vitals was founded to help business owners get fresh, accurate information about their company's financial health.">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo"><img src="logo.jpg" alt="Vista Vitals" class="logo-img"></a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>About Vista Vitals</h1>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <section class="text-section">
+    <div class="container container--narrow">
+      <div class="text-content">
+        <h2>Why We Exist</h2>
+        <p>
+          We founded Vista Vitals because we saw a real need: business owners want fresh, accurate information about their company's financial health—but most bookkeeping services just hand over statements and move on.
+        </p>
+        <p>
+          That's not enough. Numbers on a page don't tell you what changed, what's at risk, or what you should do next. They leave you guessing. Or worse—reacting too late.
+        </p>
+        <p>
+          Vista Vitals exists to close that gap. We deliver clean books paired with monthly diagnostics that surface what actually matters. Think of it as regular bloodwork for your business: catch problems early, confirm what's healthy, and move forward with confidence.
+        </p>
+        
+        <h2 style="margin-top: var(--spacing-lg);">Our Approach</h2>
+        <p>
+          We don't just do bookkeeping. We give management clarity through accounting—so you can make faster, better decisions built on numbers you can trust.
+        </p>
+        <p>
+          Every month, you get more than financial statements. You get a diagnostic review: what changed, where risk is emerging, and what deserves your attention. No guessing. No digging through spreadsheets. Just the signals you need to run your business.
+        </p>
+        
+        <h2 style="margin-top: var(--spacing-lg);">Based in Florida</h2>
+        <p>
+          Vista Vitals is headquartered in Florida and serves clients across the United States. We work remotely, communicate directly, and move fast.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="contact-section">
+    <div class="container" style="text-align: center;">
+      <h2>Want to learn more?</h2>
+      <p class="text-muted" style="margin-bottom: var(--spacing-md);">We'd love to hear about your business and see if we're a fit.</p>
+      <a href="mailto:carlos@vistavitals.com" class="btn btn--primary">carlos@vistavitals.com</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Vista Vitals LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

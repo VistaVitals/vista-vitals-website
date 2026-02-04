@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Vista Vitals</title>
+  <meta name="description" content="Get in touch with Vista Vitals. Let's talk about your bookkeeping and financial diagnostic needs.">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo"><img src="logo.jpg" alt="Vista Vitals" class="logo-img"></a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p class="text-muted" style="max-width: 500px;">Ready to get clarity on your numbers? Let's talk.</p>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="text-section">
+    <div class="container container--narrow">
+      <div class="text-content" style="text-align: center;">
+        <p style="font-size: 1.125rem; margin-bottom: var(--spacing-md);">
+          The best way to reach us is by email. Tell us a bit about your business and what you're looking for—we'll get back to you within one business day.
+        </p>
+        
+        <a href="mailto:carlos@vistavitals.com" class="contact-email" style="color: var(--color-accent); border-bottom-color: var(--color-accent-light);">carlos@vistavitals.com</a>
+        
+        <div style="margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border);">
+          <h3 style="font-family: var(--font-body); font-weight: 600; font-size: 1rem; margin-bottom: var(--spacing-sm); color: var(--color-text-muted);">What to include in your email:</h3>
+          <ul style="list-style: none; text-align: left; max-width: 400px; margin: 0 auto;">
+            <li style="padding: var(--spacing-xs) 0; border-bottom: 1px solid var(--color-border);">
+              <span style="color: var(--color-highlight); margin-right: var(--spacing-xs);">→</span> Brief description of your business
+            </li>
+            <li style="padding: var(--spacing-xs) 0; border-bottom: 1px solid var(--color-border);">
+              <span style="color: var(--color-highlight); margin-right: var(--spacing-xs);">→</span> Current bookkeeping setup (if any)
+            </li>
+            <li style="padding: var(--spacing-xs) 0; border-bottom: 1px solid var(--color-border);">
+              <span style="color: var(--color-highlight); margin-right: var(--spacing-xs);">→</span> What you're hoping to solve
+            </li>
+            <li style="padding: var(--spacing-xs) 0;">
+              <span style="color: var(--color-highlight); margin-right: var(--spacing-xs);">→</span> Approximate monthly transaction volume
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section style="background: var(--color-bg-alt);">
+    <div class="container" style="text-align: center;">
+      <p class="text-muted" style="margin: 0;">
+        <strong style="color: var(--color-text);">Vista Vitals</strong><br>
+        Florida, USA<br>
+        Serving clients nationwide
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Vista Vitals LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
