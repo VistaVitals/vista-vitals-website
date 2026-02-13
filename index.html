@@ -427,6 +427,92 @@
     text-align: center;
   }
   .pricing > .section-label { text-align: center; }
+
+  .tiers-header {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 36px;
+    font-size: 0.95rem;
+    color: var(--text);
+    flex-wrap: wrap;
+  }
+  .tiers-header span { white-space: nowrap; }
+
+  .tiers-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tiers-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.92rem;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .tiers-table thead th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 18px 16px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-align: center;
+    vertical-align: bottom;
+    line-height: 1.4;
+  }
+  .tiers-table thead th span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin-top: 2px;
+  }
+  .tiers-table thead th.service-col {
+    text-align: left;
+    width: 40%;
+  }
+  .tiers-table thead th.tier-col {
+    width: 20%;
+  }
+  .tiers-table tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+  .tiers-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .tiers-table tbody td.check {
+    text-align: center;
+    color: var(--green);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  .tiers-table tbody td.dash {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1rem;
+  }
+  .tiers-table .category-row td {
+    font-weight: 700;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    background: var(--accent-light);
+    padding: 10px 16px;
+  }
+  .tiers-footer {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: 20px;
+  }
+
   .pricing-box {
     background: var(--white);
     border: 2px solid var(--border);
@@ -466,7 +552,7 @@
   .about {
     max-width: 1120px;
     margin: 0 auto;
-    padding: 0 32px 60px;
+    padding: 80px 32px 60px;
   }
   .about-inner {
     max-width: 680px;
@@ -512,6 +598,7 @@
     margin: 0 auto;
     padding: 80px 32px;
     text-align: center;
+    scroll-margin-top: 80px;
   }
   .final-cta h2 {
     font-family: 'Instrument Serif', serif;
@@ -569,7 +656,14 @@
     .audience { padding: 48px 20px; }
     .pricing { padding: 48px 20px; }
     .pricing-box { padding: 32px 24px; }
-    .about { padding: 0 20px 40px; }
+    .tiers-header { gap: 16px; font-size: 0.85rem; }
+    .tiers-table { font-size: 0.82rem; }
+    .tiers-table thead th { padding: 12px 8px; font-size: 0.82rem; }
+    .tiers-table thead th span { font-size: 0.72rem; }
+    .tiers-table tbody td { padding: 10px 8px; }
+    .tiers-table thead th.service-col { width: 35%; }
+    .tiers-table thead th.tier-col { width: 22%; }
+    .about { padding: 48px 20px 40px; }
     .final-cta { padding: 48px 20px; }
   }
 </style>
@@ -704,74 +798,182 @@
       <div class="del-card">
         <h3>Monthly Clean Books</h3>
         <p>Accurate, reconciled financials delivered on schedule. P&L, balance sheet, and cash flow statement — the foundation everything else is built on.</p>
-        <span class="included">&#10003; Included</span>
       </div>
       <div class="del-card">
         <h3>Financial Health Panel</h3>
         <p>Your monthly diagnostic report covering 5 categories, 15+ metrics, status indicators, trend tracking, and written analysis of what the numbers mean for your business.</p>
-        <span class="included">&#10003; Included</span>
       </div>
       <div class="del-card">
         <h3>Quarterly Deep Scan Call</h3>
         <p>A 1 hour deep financial review of 90-day trends, potential emerging risks, and brainstorming on upcoming decisions.</p>
-        <span class="included">&#10003; Included</span>
       </div>
       <div class="del-card">
         <h3>Payroll Accounting</h3>
         <p>Integrated with Gusto. Payroll entries, tax liabilities, and benefit accruals flow directly into your books—accurately reflected in each monthly close.</p>
-        <span class="included">&#10003; Included</span>
       </div>
       <div class="del-card">
         <h3>Expense Management</h3>
         <p>Ramp and Dext integration. Receipts captured, coded, and reconciled seamlessly—keeping spend organized and visible without manual follow-up.</p>
-        <span class="included">&#10003; Included</span>
       </div>
       <div class="del-card">
         <h3>Direct Communication</h3>
         <p>Clear answers, when you need them. You communicate directly with the team handling your books—ensuring accuracy, continuity, and a smooth monthly close.</p>
-        <span class="included">&#10003; Included</span>
       </div>
     </div>
 
-    <div class="addons-label">Strategic Add-Ons</div>
-    <div class="del-grid">
+    <div class="del-grid" style="margin-top: 24px;">
       <div class="del-card">
         <h3>Rolling Cash Flow Forecast</h3>
         <p>A forward-looking 13-week cash flow projection, updated monthly. Move from "here's what happened" to "here's what's coming"—so you're never caught off guard by a cash shortfall or missed opportunity.</p>
-        <span class="addon-tag">+ Add-On</span>
       </div>
       <div class="del-card">
         <h3>Annual Budget + Variance Tracking</h3>
         <p>We build your annual budget alongside you, then track actual performance against it every month. The most requested CFO-level deliverable small businesses don't have—answering one question: "Am I on track?"</p>
-        <span class="addon-tag">+ Add-On</span>
       </div>
       <div class="del-card">
         <h3>Bank &amp; Lender Readiness Package</h3>
         <p>Financials cleaned, formatted, and packaged for loan applications and lines of credit discussions. Includes debt schedule tracking and covenant compliance monitoring where applicable—so you're ready when capital is on the table.</p>
-        <span class="addon-tag">+ Add-On</span>
       </div>
       <div class="del-card">
         <h3>Annual Board &amp; Investor Package</h3>
         <p>A comprehensive year-end presentation covering your company's financial performance, key metrics, industry trends, and strategic outlook. Built to stand on its own in front of a board, investor group, or advisory team.</p>
-        <span class="addon-tag">+ Add-On</span>
       </div>
       <div class="del-card">
         <h3>Investor &amp; Capital Readiness Package</h3>
         <p>Financials structured and presented for equity raises, investor due diligence, and partnership discussions. Includes cap table summary, key metrics deck, use-of-funds breakdown, and historical financial narratives—so when an investor asks for your numbers, you hand them a story that closes.</p>
-        <span class="addon-tag">+ Add-On</span>
       </div>
     </div>
   </div>
 </section>
-<!-- PRICING -->
+<!-- PRICING / TIERS -->
 <section class="pricing" id="pricing">
   <div class="section-label">Pricing</div>
-  <div class="pricing-box">
-    <div class="starts-at">Engagements start at</div>
-    <div class="price">$2,500</div>
-    <div class="period">per month</div>
-    <p class="pricing-note">Pricing based on complexity, not size. We'll scope it together after understanding your business.</p>
+  <div class="tiers-header">
+    <span><strong>Tier 1:</strong> What Happened</span>
+    <span><strong>Tier 2:</strong> What Will Happen</span>
+    <span><strong>Tier 3:</strong> Strategic Vision</span>
   </div>
+  <div class="tiers-table-wrapper">
+    <table class="tiers-table">
+      <thead>
+        <tr>
+          <th class="service-col">Service</th>
+          <th class="tier-col">Tier 1<br><span>Starting at $2,000/mo</span></th>
+          <th class="tier-col">Tier 2<br><span>Starting at $3,000/mo</span></th>
+          <th class="tier-col">Tier 3<br><span>Starting at $6,000/mo</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="category-row"><td colspan="4">Foundation</td></tr>
+        <tr>
+          <td>Monthly bookkeeping &amp; close</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>P&amp;L, balance sheet, cash flow statement</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Payroll accounting (Gusto integration)</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Expense management (Ramp + Dext)</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Direct communication with your controller</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr class="category-row"><td colspan="4">Diagnostics &mdash; &ldquo;What Happened&rdquo;</td></tr>
+        <tr>
+          <td>Financial Health Panel (15+ KPIs, trend tracking)</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Written diagnostic commentary each month</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Quarterly Deep Scan Call (45-min)</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr class="category-row"><td colspan="4">Forward-Looking &mdash; &ldquo;What Will Happen&rdquo;</td></tr>
+        <tr>
+          <td>Annual budget build</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Monthly budget vs. actual variance tracking</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Custom forecast model (built &amp; maintained)</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Rolling 13-week cash flow forecast</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr class="category-row"><td colspan="4">Your Next Move</td></tr>
+        <tr>
+          <td>Scenario modeling</td>
+          <td class="dash">&mdash;</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Quarterly board / investor reporting package</td>
+          <td class="dash">&mdash;</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Bank &amp; Lender Readiness Package</td>
+          <td class="dash">&mdash;</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Investor &amp; Capital Readiness Package</td>
+          <td class="dash">&mdash;</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+        <tr>
+          <td>Monthly 45-min strategy call with controller</td>
+          <td class="dash">&mdash;</td>
+          <td class="dash">&mdash;</td>
+          <td class="check">&#10003;</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tiers-footer">Pricing based on complexity, not company size. All tiers include a dedicated controller.</p>
 </section>
 
 <!-- ABOUT -->
