@@ -472,10 +472,10 @@
   }
   .tiers-table thead th.service-col {
     text-align: left;
-    width: 40%;
+    width: 50%;
   }
   .tiers-table thead th.tier-col {
-    width: 20%;
+    width: 25%;
   }
   .tiers-table tbody td {
     padding: 12px 16px;
@@ -496,6 +496,13 @@
     text-align: center;
     color: var(--text-light);
     font-size: 1rem;
+  }
+  .tiers-table tbody td.addon {
+    text-align: center;
+    color: var(--navy);
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-style: italic;
   }
   .tiers-table .category-row td {
     font-weight: 700;
@@ -661,8 +668,8 @@
     .tiers-table thead th { padding: 12px 8px; font-size: 0.82rem; }
     .tiers-table thead th span { font-size: 0.72rem; }
     .tiers-table tbody td { padding: 10px 8px; }
-    .tiers-table thead th.service-col { width: 35%; }
-    .tiers-table thead th.tier-col { width: 22%; }
+    .tiers-table thead th.service-col { width: 45%; }
+    .tiers-table thead th.tier-col { width: 27%; }
     .about { padding: 48px 20px 40px; }
     .final-cta { padding: 48px 20px; }
   }
@@ -804,8 +811,8 @@
         <p>Your monthly diagnostic report covering 5 categories, 10 metrics, status indicators, trend tracking, and written analysis of what the numbers mean for your business.</p>
       </div>
       <div class="del-card">
-        <h3>Monthly Deep Scan Call</h3>
-        <p>A 45-minute deep financial review of recent trends, potential emerging risks, and brainstorming on upcoming decisions.</p>
+        <h3>Quarterly Deep Scan Call</h3>
+        <p>A 1-hour deep financial review of recent trends, potential emerging risks, and brainstorming on upcoming decisions.</p>
       </div>
       <div class="del-card">
         <h3>Payroll Accounting</h3>
@@ -852,25 +859,22 @@
 <!-- PRICING / TIERS -->
 <section class="pricing" id="pricing">
   <div class="tiers-header">
-    <span><strong>Tier 1:</strong> What Happened</span>
-    <span><strong>Tier 2:</strong> What Will Happen</span>
-    <span><strong>Tier 3:</strong> Strategic Vision</span>
+    <span><strong>Understanding the Past</strong></span>
+    <span><strong>Planning for the Future</strong></span>
   </div>
   <div class="tiers-table-wrapper">
     <table class="tiers-table">
       <thead>
         <tr>
           <th class="service-col">Service</th>
-          <th class="tier-col">Tier 1<span>What Happened</span></th>
-          <th class="tier-col">Tier 2<span>What Will Happen</span></th>
-          <th class="tier-col">Tier 3<span>Strategic Vision</span></th>
+          <th class="tier-col">Understanding the Past</th>
+          <th class="tier-col">Planning for the Future</th>
         </tr>
       </thead>
       <tbody>
-        <tr class="category-row"><td colspan="4">Diagnostics &mdash; &ldquo;What Happened&rdquo;</td></tr>
+        <tr class="category-row"><td colspan="3">Understanding the Past</td></tr>
         <tr>
           <td>Monthly bookkeeping &amp; close</td>
-          <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
         </tr>
@@ -878,11 +882,9 @@
           <td>P&amp;L, balance sheet, cash flow statement</td>
           <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
         </tr>
         <tr>
           <td>Payroll accounting (Gusto integration)</td>
-          <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
         </tr>
@@ -890,11 +892,9 @@
           <td>Accounts payable (Bill.com integration)</td>
           <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
         </tr>
         <tr>
           <td>Accounts receivable (QBO integration)</td>
-          <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
         </tr>
@@ -902,80 +902,63 @@
           <td>Financial Health Panel (10 KPIs, trend tracking)</td>
           <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
         </tr>
         <tr>
           <td>Written diagnostic commentary each month</td>
           <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
         </tr>
-        <tr class="category-row"><td colspan="4">Forward-Looking &mdash; &ldquo;What Will Happen&rdquo;</td></tr>
+        <tr class="category-row"><td colspan="3">Planning for the Future</td></tr>
         <tr>
           <td>Annual budget build</td>
           <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
           <td class="check">&#10003;</td>
         </tr>
         <tr>
           <td>Monthly budget vs. actual variance tracking</td>
           <td class="dash">&mdash;</td>
           <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
         </tr>
         <tr>
           <td>Rolling 13-week cash flow forecast</td>
           <td class="dash">&mdash;</td>
           <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
         </tr>
         <tr>
-          <td>Monthly Deep Scan Call (45 min)</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr class="category-row"><td colspan="4">Your Next Move</td></tr>
-        <tr>
-          <td>Bespoke forecast model (built &amp; maintained)</td>
-          <td class="dash">&mdash;</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Monthly Strategy Call (45 min)</td>
-          <td class="dash">&mdash;</td>
+          <td>Quarterly Deep Scan Call (1 hour)</td>
           <td class="dash">&mdash;</td>
           <td class="check">&#10003;</td>
         </tr>
         <tr>
           <td>Scenario modeling</td>
           <td class="dash">&mdash;</td>
-          <td class="dash">&mdash;</td>
           <td class="check">&#10003;</td>
+        </tr>
+        <tr class="category-row"><td colspan="3">Add-on Services</td></tr>
+        <tr>
+          <td>Monthly Strategy Call (45 min)</td>
+          <td class="dash">&mdash;</td>
+          <td class="addon">Add-on</td>
         </tr>
         <tr>
           <td>Quarterly board / investor reporting</td>
           <td class="dash">&mdash;</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
+          <td class="addon">Add-on</td>
         </tr>
         <tr>
           <td>Bank &amp; Lender Readiness</td>
           <td class="dash">&mdash;</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
+          <td class="addon">Add-on</td>
         </tr>
         <tr>
           <td>Investor &amp; Capital Readiness</td>
           <td class="dash">&mdash;</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
+          <td class="addon">Add-on</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <p class="tiers-footer">Pricing based on complexity, not company size. All tiers include a dedicated controller.</p>
+  <p class="tiers-footer">Pricing based on complexity, not company size. Both tiers include a dedicated controller.</p>
 </section>
 
 <!-- ABOUT -->
