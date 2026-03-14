@@ -206,14 +206,6 @@
     color: var(--accent);
     margin-bottom: 12px;
   }
-  .panel-inner > h2 {
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400;
-    font-size: 2rem;
-    color: var(--navy);
-    text-align: center;
-    margin-bottom: 12px;
-  }
   .panel-inner > p.subtitle {
     text-align: center;
     color: var(--navy);
@@ -222,7 +214,15 @@
     font-weight: 400;
     line-height: 1.3;
     max-width: 700px;
+    margin: 0 auto 12px;
+  }
+  .panel-inner > .panel-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 400;
     margin: 0 auto 48px;
+    max-width: 700px;
   }
 
   /* Mock diagnostic card */
@@ -243,9 +243,15 @@
     border-bottom: 1px solid var(--border);
   }
   .diag-header h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
     color: var(--navy);
+  }
+  .diag-sample-label {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-weight: 500;
   }
   .diag-score {
     background: var(--navy);
@@ -876,14 +882,13 @@
 <!-- DIAGNOSTIC PANEL PREVIEW -->
 <section class="panel-section" id="panel">
   <div class="panel-inner">
-    <div class="section-label">The Vista Vitals Financial Health Panel</div>
-    <h2>Monthly diagnostics that surface what matters</h2>
     <p class="subtitle">Think of it as monthly bloodwork for your business, interpreted by your dedicated accounting professional.</p>
+    <p class="panel-subtitle">Monthly diagnostics that surface what matters</p>
 
     <div class="diag-card">
       <div class="diag-header">
-        <h3>Sample: Diagnostic Dashboard — March 2026</h3>
-
+        <h3>The Vista Vitals Financial Health Panel</h3>
+        <span class="diag-sample-label">Sample: March 2026</span>
       </div>
       <div class="diag-row">
         <span class="diag-metric">Cash Runway</span>
