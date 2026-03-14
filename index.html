@@ -84,29 +84,35 @@
     padding: 80px 32px 60px;
   }
   .hero-tag {
-    display: inline-block;
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 100px;
-    margin-bottom: 28px;
+    display: block;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    color: var(--navy);
+    line-height: 1.1;
+    max-width: 800px;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
   }
   .hero h1 {
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
     color: var(--navy);
-    line-height: 1.15;
+    line-height: 1.2;
     max-width: 720px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
   .hero h1 em {
     font-style: italic;
     color: var(--accent);
+  }
+  .hero .firm-desc {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
   }
   .hero p {
     font-size: 1.15rem;
@@ -210,9 +216,12 @@
   }
   .panel-inner > p.subtitle {
     text-align: center;
-    color: var(--text-light);
-    font-size: 1.05rem;
-    max-width: 560px;
+    color: var(--navy);
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.3;
+    max-width: 700px;
     margin: 0 auto 48px;
   }
 
@@ -417,6 +426,143 @@
   .aud-card p {
     font-size: 0.88rem;
     color: var(--text-light);
+  }
+
+  /* ---- TIER CARDS ---- */
+  .tier-cards-section {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+  .tier-cards-section > .section-label { text-align: center; }
+  .tier-cards-section > h2 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    color: var(--navy);
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .tier-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .tier-card {
+    background: var(--white);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .tier-card h3 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .tier-card > p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  /* Mini Health Panel */
+  .mini-panel {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: auto;
+  }
+  .mini-panel-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .mini-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid #F0F2F5;
+    font-size: 0.82rem;
+  }
+  .mini-row:last-child { border-bottom: none; }
+  .mini-metric {
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .mini-status {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 100px;
+    text-align: center;
+  }
+  .mini-status.healthy { background: #E6F9ED; color: var(--green); }
+  .mini-status.watch { background: #FFF6E0; color: #C88B00; }
+  .mini-status.critical { background: #FEE; color: var(--red); }
+
+  /* Mini Cash Flow Forecast */
+  .mini-forecast {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: auto;
+  }
+  .mini-forecast-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .forecast-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .forecast-header span:not(:first-child) { text-align: right; }
+  .forecast-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    gap: 4px;
+    font-size: 0.78rem;
+    padding: 6px 0;
+    border-bottom: 1px solid #F0F2F5;
+    color: var(--text);
+  }
+  .forecast-row:last-child { border-bottom: none; }
+  .forecast-row span:first-child {
+    font-weight: 500;
+    color: var(--navy);
+  }
+  .forecast-row span:not(:first-child) { text-align: right; }
+  .forecast-row.total-row {
+    font-weight: 600;
+    color: var(--navy);
+    border-top: 2px solid var(--border);
+    border-bottom: none;
+    padding-top: 8px;
   }
 
   /* ---- PRICING ---- */
@@ -651,7 +797,7 @@
     .nav-links a { margin-left: 0; padding: 10px 0; }
     .hero { padding: 48px 20px 40px; }
     .problem { padding: 48px 20px; }
-    .problem-grid, .del-grid, .audience-grid {
+    .problem-grid, .del-grid, .audience-grid, .tier-cards-grid {
       grid-template-columns: 1fr;
     }
     .panel-section { padding: 48px 16px; }
@@ -670,6 +816,9 @@
     .tiers-table tbody td { padding: 10px 8px; }
     .tiers-table thead th.service-col { width: 45%; }
     .tiers-table thead th.tier-col { width: 27%; }
+    .tier-cards-section { padding: 48px 20px; }
+    .forecast-header, .forecast-row { font-size: 0.7rem; }
+    .mini-row { font-size: 0.78rem; }
     .about { padding: 48px 20px 40px; }
     .final-cta { padding: 48px 20px; }
   }
@@ -695,8 +844,9 @@
 <section class="hero">
   <div class="hero-tag">Financial Diagnostics for Growing Businesses</div>
   <h1>Clean books. <em>Clear</em> decisions.</h1>
+  <p class="firm-desc">We are a Full Stack Finance &amp; Diagnostics Firm.</p>
   <p>By providing ongoing visibility into your business' health, we deliver actionable insights that help grow profits and reduce risks.</p>
-  <a href="https://meetings-na2.hubspot.com/carlos7" class="cta-btn">Book a Discovery Call</a>
+  <a href="https://meetings-na2.hubspot.com/carlos7" class="cta-btn">Schedule a Call</a>
 </section>
 
 <!-- PROBLEM -->
@@ -797,6 +947,96 @@
   </div>
 </section>
 
+<!-- TIER CARDS -->
+<section class="tier-cards-section" id="tiers">
+  <div class="section-label">Our Tiers</div>
+  <h2>Choose the level of insight your business needs</h2>
+  <div class="tier-cards-grid">
+
+    <!-- Card A: Core Diagnostic -->
+    <div class="tier-card">
+      <h3>Core Diagnostic</h3>
+      <p>Every month, you get a complete picture of your business's financial health. We handle all the back office work — bookkeeping, payroll, AP, AR, reporting — and translate it into a diagnostic dashboard with KPIs, trend tracking, and written commentary from your dedicated financial professional. You'll know exactly what's healthy, what's deteriorating, and what needs attention. No more guessing.</p>
+      <div class="mini-panel">
+        <div class="mini-panel-title">The Vista Vitals Financial Health Panel</div>
+        <div class="mini-row">
+          <span class="mini-metric">Cash Runway</span>
+          <span class="mini-status watch">WATCH</span>
+        </div>
+        <div class="mini-row">
+          <span class="mini-metric">Gross Margin</span>
+          <span class="mini-status healthy">HEALTHY</span>
+        </div>
+        <div class="mini-row">
+          <span class="mini-metric">Client Concentration</span>
+          <span class="mini-status critical">CRITICAL</span>
+        </div>
+        <div class="mini-row">
+          <span class="mini-metric">Net Margin</span>
+          <span class="mini-status watch">WATCH</span>
+        </div>
+        <div class="mini-row">
+          <span class="mini-metric">Customer Churn</span>
+          <span class="mini-status healthy">HEALTHY</span>
+        </div>
+        <div class="mini-row">
+          <span class="mini-metric">Overhead Ratio</span>
+          <span class="mini-status watch">WATCH</span>
+        </div>
+        <div class="mini-row">
+          <span class="mini-metric">AR Days Outstanding</span>
+          <span class="mini-status healthy">HEALTHY</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card B: Strategic Planning -->
+    <div class="tier-card">
+      <h3>Strategic Planning</h3>
+      <p>Everything in Core Diagnostic, plus the forward-looking tools to make big decisions with confidence. We collaboratively build your annual budget, track performance against it, maintain a rolling 13-week cash flow forecast, and model scenarios before you commit — new hire, price change, expansion, or whatever consequential business decision you are contemplating. Every quarter, we hold a Deep Scan call where we pressure test assumptions and map out your financial priorities for the next 90 days.</p>
+      <div class="mini-forecast">
+        <div class="mini-forecast-title">13-Week Cash Flow Forecast</div>
+        <div class="forecast-header">
+          <span></span>
+          <span>Wk 1</span>
+          <span>Wk 5</span>
+          <span>Wk 9</span>
+          <span>Wk 13</span>
+        </div>
+        <div class="forecast-row">
+          <span>Inflows</span>
+          <span>$48k</span>
+          <span>$52k</span>
+          <span>$51k</span>
+          <span>$55k</span>
+        </div>
+        <div class="forecast-row">
+          <span>Outflows</span>
+          <span>($41k)</span>
+          <span>($43k)</span>
+          <span>($40k)</span>
+          <span>($44k)</span>
+        </div>
+        <div class="forecast-row total-row">
+          <span>Net Cash</span>
+          <span>$7k</span>
+          <span>$9k</span>
+          <span>$11k</span>
+          <span>$11k</span>
+        </div>
+        <div class="forecast-row">
+          <span>Ending Balance</span>
+          <span>$82k</span>
+          <span>$91k</span>
+          <span>$102k</span>
+          <span>$113k</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- SERVICES -->
 <section class="deliverables" id="deliverables">
   <div class="deliverables-inner">
@@ -856,111 +1096,6 @@
     </div>
   </div>
 </section>
-<!-- PRICING / TIERS -->
-<section class="pricing" id="pricing">
-  <div class="tiers-header" style="display:none;">
-    <span><strong>Core Diagnostic</strong></span>
-    <span><strong>Strategic Planning</strong></span>
-  </div>
-  <div class="tiers-table-wrapper">
-    <table class="tiers-table">
-      <thead>
-        <tr>
-          <th class="service-col">Service</th>
-          <th class="tier-col">Core Diagnostic</th>
-          <th class="tier-col">Strategic Planning</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="category-row"><td colspan="3">Core Diagnostic</td></tr>
-        <tr>
-          <td>Monthly bookkeeping &amp; close</td>
-          <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>P&amp;L, balance sheet, cash flow statement</td>
-          <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Payroll accounting (Gusto integration)</td>
-          <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Accounts payable (Bill.com integration)</td>
-          <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Accounts receivable (QBO integration)</td>
-          <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Financial Health Panel (10 KPIs, trend tracking)</td>
-          <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Written diagnostic commentary each month</td>
-          <td class="check">&#10003;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr class="category-row"><td colspan="3">Strategic Planning</td></tr>
-        <tr>
-          <td>Annual budget build</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Monthly budget vs. actual variance tracking</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Rolling 13-week cash flow forecast</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Quarterly Deep Scan Call (1 hour)</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr>
-          <td>Scenario modeling</td>
-          <td class="dash">&mdash;</td>
-          <td class="check">&#10003;</td>
-        </tr>
-        <tr class="category-row"><td colspan="3">Add-on Services</td></tr>
-        <tr>
-          <td>Quarterly board / investor reporting</td>
-          <td class="dash">&mdash;</td>
-          <td class="addon">Add-on</td>
-        </tr>
-        <tr>
-          <td>Bank &amp; Lender Readiness</td>
-          <td class="dash">&mdash;</td>
-          <td class="addon">Add-on</td>
-        </tr>
-        <tr>
-          <td>Investor &amp; Capital Readiness</td>
-          <td class="dash">&mdash;</td>
-          <td class="addon">Add-on</td>
-        </tr>
-        <tr>
-          <td>Buy-Side Acquisition Valuation</td>
-          <td class="dash">&mdash;</td>
-          <td class="addon">Add-on</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="tiers-footer">Pricing based on complexity, not company size. Both tiers include a dedicated controller.</p>
-</section>
-
 <!-- ABOUT -->
 <section class="about">
   <div class="about-inner">
@@ -980,7 +1115,7 @@
 <section class="final-cta" id="contact">
   <h2>Ready to see what your numbers are actually saying?</h2>
   <p>Get in touch to see if Vista Vitals is right for your business.</p>
-  <a href="https://meetings-na2.hubspot.com/carlos7" class="cta-btn">Book a Discovery Call</a>
+  <a href="https://meetings-na2.hubspot.com/carlos7" class="cta-btn">Schedule a Call</a>
 </section>
 
 <!-- FOOTER -->
