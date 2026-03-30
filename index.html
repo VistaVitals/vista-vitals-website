@@ -61,6 +61,23 @@
     transition: color 0.2s;
   }
   nav a:hover { color: var(--navy); }
+  .nav-portal-btn {
+    display: inline-block;
+    background: #1B3A5C;
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-left: 32px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .nav-portal-btn:hover {
+    background: #152e4a;
+    color: #fff !important;
+    transform: translateY(-1px);
+  }
   .nav-toggle {
     display: none;
     background: none;
@@ -801,6 +818,7 @@
     }
     .nav-links.active { display: flex; }
     .nav-links a { margin-left: 0; padding: 10px 0; }
+    .nav-portal-btn { margin-left: 0; margin-top: 8px; text-align: center; }
     .hero { padding: 48px 20px 40px; }
     .problem { padding: 48px 20px; }
     .problem-grid, .del-grid, .audience-grid, .tier-cards-grid {
@@ -844,6 +862,7 @@
   <div class="nav-links">
     <a href="#tiers">Services</a>
     <a href="#contact">Contact</a>
+    <a href="https://portal.vistavitals.com" target="_blank" rel="noopener noreferrer" class="nav-portal-btn">Client Portal</a>
   </div>
 </nav>
 
