@@ -1005,113 +1005,121 @@
 
 <!-- TIER CARDS -->
 <section class="tier-cards-section" id="tiers">
-<div style="background: #f8f9fb; border-radius: var(--border-radius-lg); padding: 2rem;">
+<style>
+  .vv-wrap { font-family: 'DM Sans', sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+  .vv-heading { text-align: center; font-family: 'DM Serif Display', serif; font-size: 28px; font-weight: 400; color: var(--navy); margin-bottom: 2rem; }
+  .vv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .vv-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; gap: 16px; }
+  .vv-card.featured { border: 2px solid #1B3A5C; }
+  .vv-badge { display: inline-block; background: #1B3A5C; color: #fff; font-size: 11px; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .vv-tier-name { font-size: 19px; font-weight: 500; color: var(--navy); margin: 0; }
+  .vv-desc { font-size: 13px; color: var(--text-light); line-height: 1.6; margin: 0; }
+  .vv-panels { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .vv-panel { background: var(--bg); border-radius: 10px; padding: 12px; }
+  .vv-panel-label { font-size: 9px; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  .vv-kpi-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; border-bottom: 0.5px solid var(--border); font-size: 11px; }
+  .vv-kpi-row:last-child { border-bottom: none; }
+  .vv-kpi-name { color: var(--text-light); }
+  .badge-watch { background: #FFF3CD; color: #856404; font-size: 9px; padding: 2px 7px; border-radius: 4px; font-weight: 500; }
+  .badge-healthy { background: #D1FAE5; color: #065F46; font-size: 9px; padding: 2px 7px; border-radius: 4px; font-weight: 500; }
+  .badge-risk { background: #FEE2E2; color: #991B1B; font-size: 9px; padding: 2px 7px; border-radius: 4px; font-weight: 500; }
+  .vv-forecast { width: 100%; border-collapse: collapse; font-size: 11px; }
+  .vv-forecast th { color: var(--accent); font-weight: 400; text-align: right; padding: 2px 4px; font-size: 10px; }
+  .vv-forecast th:first-child { text-align: left; }
+  .vv-forecast td { padding: 3px 4px; color: var(--text-light); text-align: right; }
+  .vv-forecast td:first-child { text-align: left; color: var(--text-light); }
+  .vv-forecast tr.net td { color: #1B3A5C; font-weight: 500; }
+  .vv-forecast tr.ending td { color: var(--navy); font-weight: 500; border-top: 0.5px solid var(--border); padding-top: 5px; }
+  .vv-scenarios { display: flex; flex-direction: column; gap: 5px; }
+  .vv-scenario-q { font-size: 11.5px; color: var(--text-light); padding: 6px 10px; background: var(--white); border-radius: 7px; border: 0.5px solid var(--border); line-height: 1.4; }
+  .vv-scenario-q::before { content: '\2192 '; color: #3A8FAD; font-weight: 500; }
+  .vv-checklist { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+  .vv-checklist li { display: flex; gap: 8px; font-size: 12.5px; color: var(--text-light); }
+  .vv-check { color: #3A8FAD; font-size: 14px; flex-shrink: 0; }
+  .vv-divider { border: none; border-top: 0.5px solid var(--border); margin: 4px 0; }
+  .vv-btn { display: block; text-align: center; padding: 13px; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; width: 100%; box-sizing: border-box; text-decoration: none; }
+  .vv-btn-primary { background: #1B3A5C; color: #fff; border: none; }
+  @media (max-width: 620px) { .vv-grid { grid-template-columns: 1fr; } }
+</style>
 
-<div style="text-align: center; margin-bottom: 2.5rem;">
-  <div style="font-size: 24px; font-weight: 500; color: #1a2b3c; font-family: Georgia, serif;">Your outsourced finance department.</div>
-</div>
+<div class="vv-wrap">
+  <p class="vv-heading">Your outsourced finance department.</p>
+  <div class="vv-grid">
 
-<div style="background: #fff; border-radius: 12px; border: 1px solid #e2e5ea; max-width: 680px; margin: 0 auto; padding: 2.5rem 2rem;">
-
-  <div style="margin-bottom: 2rem;">
-    <div style="font-size: 20px; font-weight: 500; color: #1a2b3c; margin-bottom: 12px;">Core Operations + Financial Planning</div>
-    <div style="font-size: 15px; line-height: 1.7; color: #4a5568;">
-      We handle all the back office work — bookkeeping, payroll, bill pay, AR, reporting — and translate it into a diagnostic dashboard with KPIs, trend tracking, and written commentary from your dedicated financial professional. We deliver ongoing strategic financial guidance powered by a rolling three-month cash flow forecast and real-time scenario modeling—giving you clarity on key decisions before you make them. We continuously refine assumptions, update projections, and align your strategy with your top priorities for the next 90 days.
-    </div>
-  </div>
-
-  <div class="service-sample-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 2rem;">
-
-    <div style="border: 1px solid #e2e5ea; border-radius: 8px; padding: 16px;">
-      <div style="font-size: 11px; letter-spacing: 1.5px; color: #3b7a8a; margin-bottom: 12px;">THE VISTA VITALS FINANCIAL HEALTH PANEL</div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f1f3;">
-        <span style="font-size: 13px; color: #1a2b3c;">Cash Runway</span>
-        <span style="font-size: 12px; font-weight: 500; color: #c77c14; background: #fef5e1; padding: 2px 10px; border-radius: 4px;">WATCH</span>
+    <!-- TIER 1 -->
+    <div class="vv-card">
+      <div>
+        <p class="vv-tier-name">Core Finance Operations</p>
+        <p class="vv-desc" style="margin-top:6px;">Full back-office execution — bookkeeping, payroll, AR, bill pay — delivered monthly with a Financial Health Panel and KPI dashboard so you always know where you stand.</p>
       </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f1f3;">
-        <span style="font-size: 13px; color: #1a2b3c;">Net Margin</span>
-        <span style="font-size: 12px; font-weight: 500; color: #c77c14; background: #fef5e1; padding: 2px 10px; border-radius: 4px;">WATCH</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f1f3;">
-        <span style="font-size: 13px; color: #1a2b3c;">Debt Service Coverage</span>
-        <span style="font-size: 12px; font-weight: 500; color: #1a7a4f; background: #e6f5ee; padding: 2px 10px; border-radius: 4px;">HEALTHY</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f1f3;">
-        <span style="font-size: 13px; color: #1a2b3c;">AR Days Outstanding</span>
-        <span style="font-size: 12px; font-weight: 500; color: #1a7a4f; background: #e6f5ee; padding: 2px 10px; border-radius: 4px;">HEALTHY</span>
-      </div>
-      <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 0;">
-        <span style="font-size: 13px; color: #1a2b3c;">Customer Churn</span>
-        <span style="font-size: 12px; font-weight: 500; color: #1a7a4f; background: #e6f5ee; padding: 2px 10px; border-radius: 4px;">HEALTHY</span>
-      </div>
-    </div>
 
-    <div style="border: 1px solid #e2e5ea; border-radius: 8px; padding: 16px; overflow-x: auto;">
-      <div style="font-size: 11px; letter-spacing: 1.5px; color: #3b7a8a; margin-bottom: 12px;">3-MONTH CASH FLOW FORECAST</div>
-      <table style="width: 100%; font-size: 12px; color: #1a2b3c; border-collapse: collapse;">
-        <thead>
-          <tr>
-            <td style="padding: 4px 0; color: #8a919a;"></td>
-            <td style="padding: 4px 0; text-align: right; color: #8a919a;">WK 1</td>
-            <td style="padding: 4px 0; text-align: right; color: #8a919a;">WK 5</td>
-            <td style="padding: 4px 0; text-align: right; color: #8a919a;">WK 9</td>
-            <td style="padding: 4px 0; text-align: right; color: #8a919a;">WK 13</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-top: 1px solid #f0f1f3;">
-            <td style="padding: 8px 0; font-weight: 500;">Inflows</td>
-            <td style="padding: 8px 0; text-align: right;">$48k</td>
-            <td style="padding: 8px 0; text-align: right;">$52k</td>
-            <td style="padding: 8px 0; text-align: right;">$51k</td>
-            <td style="padding: 8px 0; text-align: right;">$55k</td>
-          </tr>
-          <tr style="border-top: 1px solid #f0f1f3;">
-            <td style="padding: 8px 0; font-weight: 500;">Outflows</td>
-            <td style="padding: 8px 0; text-align: right;">($41k)</td>
-            <td style="padding: 8px 0; text-align: right;">($43k)</td>
-            <td style="padding: 8px 0; text-align: right;">($40k)</td>
-            <td style="padding: 8px 0; text-align: right;">($44k)</td>
-          </tr>
-          <tr style="border-top: 1px solid #f0f1f3;">
-            <td style="padding: 8px 0; font-weight: 500; color: #1a7a4f;">Net Cash</td>
-            <td style="padding: 8px 0; text-align: right; font-weight: 500; color: #1a7a4f;">$7k</td>
-            <td style="padding: 8px 0; text-align: right; font-weight: 500; color: #1a7a4f;">$9k</td>
-            <td style="padding: 8px 0; text-align: right; font-weight: 500; color: #1a7a4f;">$11k</td>
-            <td style="padding: 8px 0; text-align: right; font-weight: 500; color: #1a7a4f;">$11k</td>
-          </tr>
-          <tr style="border-top: 1px solid #f0f1f3;">
-            <td style="padding: 8px 0; font-weight: 500;">Ending Balance</td>
-            <td style="padding: 8px 0; text-align: right;">$82k</td>
-            <td style="padding: 8px 0; text-align: right;">$91k</td>
-            <td style="padding: 8px 0; text-align: right;">$102k</td>
-            <td style="padding: 8px 0; text-align: right;">$113k</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="vv-panels">
+        <div class="vv-panel">
+          <div class="vv-panel-label">Financial Health Panel</div>
+          <div class="vv-kpi-row"><span class="vv-kpi-name">Cash runway</span><span class="badge-watch">WATCH</span></div>
+          <div class="vv-kpi-row"><span class="vv-kpi-name">Net margin</span><span class="badge-watch">WATCH</span></div>
+          <div class="vv-kpi-row"><span class="vv-kpi-name">Debt service coverage</span><span class="badge-healthy">HEALTHY</span></div>
+          <div class="vv-kpi-row"><span class="vv-kpi-name">AR days outstanding</span><span class="badge-healthy">HEALTHY</span></div>
+          <div class="vv-kpi-row"><span class="vv-kpi-name">Labor cost %</span><span class="badge-risk">RISK</span></div>
+        </div>
+      </div>
+
+      <hr class="vv-divider">
+      <ul class="vv-checklist">
+        <li><span class="vv-check">&#10003;</span> Full-service bookkeeping &amp; monthly close</li>
+        <li><span class="vv-check">&#10003;</span> Payroll, bill pay, AR management</li>
+        <li><span class="vv-check">&#10003;</span> Monthly KPI diagnostic</li>
+        <li><span class="vv-check">&#10003;</span> Written financial commentary</li>
+        <li><span class="vv-check">&#10003;</span> Ask AI — Q&amp;A on your financials</li>
+      </ul>
     </div>
 
-  </div>
+    <!-- TIER 2 -->
+    <div class="vv-card featured">
+      <div>
+        <span class="vv-badge">Most popular</span>
+        <p class="vv-tier-name" style="margin-top:6px;">Strategic Finance</p>
+        <p class="vv-desc" style="margin-top:6px;">Everything in Core, plus the forward-looking tools to make important decisions with confidence — rolling cash forecast, scenario modeling, margin analysis, and a monthly advisory call.</p>
+      </div>
 
-  <div style="margin-bottom: 2rem;">
-    <div style="font-size: 13px; font-weight: 500; color: #1a2b3c; margin-bottom: 10px;">Everything included:</div>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; font-size: 13px; color: #4a5568; line-height: 1.8;">
-      <div style="display: flex; align-items: center; gap: 8px;"><span style="color: #1a7a4f; font-size: 14px;">&#10003;</span> Full-service bookkeeping</div>
-      <div style="display: flex; align-items: center; gap: 8px;"><span style="color: #1a7a4f; font-size: 14px;">&#10003;</span> Monthly KPI diagnostic</div>
-      <div style="display: flex; align-items: center; gap: 8px;"><span style="color: #1a7a4f; font-size: 14px;">&#10003;</span> Payroll, bill pay, AR management</div>
-      <div style="display: flex; align-items: center; gap: 8px;"><span style="color: #1a7a4f; font-size: 14px;">&#10003;</span> 3-month cash flow forecast</div>
-      <div style="display: flex; align-items: center; gap: 8px;"><span style="color: #1a7a4f; font-size: 14px;">&#10003;</span> What-if scenario modeling</div>
-      <div style="display: flex; align-items: center; gap: 8px;"><span style="color: #1a7a4f; font-size: 14px;">&#10003;</span> Written financial commentary</div>
+      <div class="vv-panels">
+        <div class="vv-panel">
+          <div class="vv-panel-label">3-month cash forecast</div>
+          <table class="vv-forecast">
+            <tr><th></th><th>M1</th><th>M2</th><th>M3</th></tr>
+            <tr><td>Inflows</td><td>$48k</td><td>$52k</td><td>$55k</td></tr>
+            <tr><td>Outflows</td><td>($41k)</td><td>($43k)</td><td>($44k)</td></tr>
+            <tr class="net"><td>Net</td><td>$7k</td><td>$9k</td><td>$11k</td></tr>
+            <tr class="ending"><td>Balance</td><td>$82k</td><td>$91k</td><td>$102k</td></tr>
+          </table>
+        </div>
+        <div class="vv-panel">
+          <div class="vv-panel-label">Scenario modeling — questions we answer</div>
+          <div class="vv-scenarios">
+            <div class="vv-scenario-q">Can I make a new hire?</div>
+            <div class="vv-scenario-q">What if I lose my largest customer?</div>
+            <div class="vv-scenario-q">Are my products priced correctly?</div>
+            <div class="vv-scenario-q">Can I afford a new location?</div>
+            <div class="vv-scenario-q">Where is my margin leaking?</div>
+            <div class="vv-scenario-q">What will cash look like in 90 days?</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="vv-divider">
+      <ul class="vv-checklist">
+        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Everything in Core Finance Operations</li>
+        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Rolling 3-month cash flow forecast</li>
+        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Variance analysis with action commentary</li>
+        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Margin &amp; service line analysis</li>
+        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Monthly advisory call</li>
+        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Advanced Ask AI — decision support &amp; forecasting</li>
+      </ul>
     </div>
-  </div>
-
-  <div style="text-align: center;">
-    <a href="https://meetings-na2.hubspot.com/carlos7" style="display: inline-block; background: #1a2b3c; color: #fff; padding: 14px 40px; border-radius: 8px; font-size: 15px; font-weight: 500; cursor: pointer; text-decoration: none;">Book a discovery call</a>
 
   </div>
 
-</div>
-
+  <a href="https://meetings-na2.hubspot.com/carlos7" class="vv-btn vv-btn-primary">Book a discovery call</a>
 </div>
 </section>
 
