@@ -1012,9 +1012,9 @@
 <!-- TIER CARDS -->
 <section class="tier-cards-section" id="tiers">
 <style>
-  .vv-wrap { font-family: 'DM Sans', sans-serif; max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+  .vv-wrap { font-family: 'DM Sans', sans-serif; max-width: 1200px; margin: 0 auto; padding: 2rem 1rem; }
   .vv-heading { text-align: center; font-family: 'DM Serif Display', serif; font-size: 28px; font-weight: 400; color: var(--navy); margin-bottom: 2rem; }
-  .vv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .vv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
   .vv-card { background: var(--white); border: 0.5px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; gap: 16px; }
   .vv-card.featured { border: 2px solid #1B3A5C; }
   .vv-badge { display: inline-block; background: #1B3A5C; color: #fff; font-size: 11px; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.04em; margin-bottom: 4px; }
@@ -1045,7 +1045,12 @@
   .vv-divider { border: none; border-top: 0.5px solid var(--border); margin: 4px 0; }
   .vv-btn { display: block; text-align: center; padding: 13px; border-radius: 10px; font-size: 14px; font-weight: 500; cursor: pointer; width: 100%; box-sizing: border-box; text-decoration: none; }
   .vv-btn-primary { background: #1B3A5C; color: #fff; border: none; }
-  @media (max-width: 620px) { .vv-grid { grid-template-columns: 1fr; } }
+  .vv-price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px; padding-top: 4px; }
+  .vv-price-prefix { font-size: 12px; color: var(--text-light); font-weight: 500; }
+  .vv-price-amount { font-family: 'Instrument Serif', serif; font-size: 32px; font-weight: 400; color: var(--navy); line-height: 1; }
+  .vv-price-period { font-size: 12px; color: var(--text-light); }
+  .vv-addon-note { font-style: italic; font-size: 11px; color: var(--text-light); line-height: 1.5; margin: 0; }
+  @media (max-width: 980px) { .vv-grid { grid-template-columns: 1fr; } }
 </style>
 
 <div class="vv-wrap">
@@ -1057,6 +1062,11 @@
       <div>
         <p class="vv-tier-name">Core Finance Operations</p>
         <p class="vv-desc" style="margin-top:6px;">Full back-office execution — bookkeeping, payroll, AR, bill pay — delivered monthly with a Financial Health Panel and KPI dashboard so you always know where you stand.</p>
+        <div class="vv-price" style="margin-top:10px;">
+          <span class="vv-price-prefix">Starting at</span>
+          <span class="vv-price-amount">$1,500</span>
+          <span class="vv-price-period">/month</span>
+        </div>
       </div>
 
       <div class="vv-panels">
@@ -1086,6 +1096,11 @@
         <span class="vv-badge">Most popular</span>
         <p class="vv-tier-name" style="margin-top:6px;">Strategic Finance</p>
         <p class="vv-desc" style="margin-top:6px;">Everything in Core, plus the forward-looking tools to make important decisions with confidence — rolling cash forecast, scenario modeling, margin analysis, and a monthly advisory call.</p>
+        <div class="vv-price" style="margin-top:10px;">
+          <span class="vv-price-prefix">Starting at</span>
+          <span class="vv-price-amount">$2,500</span>
+          <span class="vv-price-period">/month</span>
+        </div>
       </div>
 
       <div class="vv-panels">
@@ -1116,10 +1131,52 @@
       <ul class="vv-checklist">
         <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Everything in Core Finance Operations</li>
         <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Rolling 3-month cash flow forecast</li>
+        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Scenario modeling</li>
+        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Collections &amp; cash conversion analysis</li>
         <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Variance analysis with action commentary</li>
         <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Monthly advisory call</li>
-        <li><span class="vv-check" style="color:#3A8FAD;">&#10003;</span> Quarterly strategy call</li>
       </ul>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="vv-card">
+      <div>
+        <p class="vv-tier-name">Fractional CFO</p>
+        <p class="vv-desc" style="margin-top:6px;">For companies who need CFO-level judgement without a $300k+ hire. You get a CFO partner to advise and think through your biggest decisions &mdash; pricing strategy, board and investor-ready reporting, custom financial modeling, live support through debt and equity raises.</p>
+        <div class="vv-price" style="margin-top:10px;">
+          <span class="vv-price-prefix">Starting at</span>
+          <span class="vv-price-amount">$7,000</span>
+          <span class="vv-price-period">/month</span>
+        </div>
+      </div>
+
+      <div class="vv-panels">
+        <div class="vv-panel">
+          <div class="vv-panel-label">Decisions on the table</div>
+          <div class="vv-scenarios">
+            <div class="vv-scenario-q">Should we raise debt or equity next?</div>
+            <div class="vv-scenario-q">How do we price the new product line?</div>
+            <div class="vv-scenario-q">What does the board need to see this quarter?</div>
+            <div class="vv-scenario-q">Is our unit economics story investor-ready?</div>
+            <div class="vv-scenario-q">What terms should we push back on?</div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="vv-divider">
+      <ul class="vv-checklist">
+        <li><span class="vv-check">&#10003;</span> Everything in Strategic Finance</li>
+        <li><span class="vv-check">&#10003;</span> CFO partner for your biggest decisions</li>
+        <li><span class="vv-check">&#10003;</span> Pricing strategy &amp; unit economics</li>
+        <li><span class="vv-check">&#10003;</span> Board &amp; investor-ready reporting</li>
+        <li><span class="vv-check">&#10003;</span> Custom financial modeling</li>
+        <li><span class="vv-check">&#10003;</span> Weekly review call</li>
+        <li><span class="vv-check">&#10003;</span> Monthly results call</li>
+        <li><span class="vv-check">&#10003;</span> Quarterly strategy meeting</li>
+        <li><span class="vv-check">&#10003;</span> Treasury &amp; working capital optimization</li>
+        <li><span class="vv-check">&#10003;</span> Live support through debt &amp; equity raises</li>
+      </ul>
+      <p class="vv-addon-note"><em>Active capital raises is an add-on and billed separately.</em></p>
     </div>
 
   </div>
