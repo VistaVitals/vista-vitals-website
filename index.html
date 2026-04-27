@@ -11,6 +11,9 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Your outsourced finance department">
 <meta name="twitter:description" content="Vista Vitals is your full-service accounting department and financial intelligence partner. Monthly health panels, trend tracking, and written analysis — not just software output.">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -47,13 +50,18 @@
     padding: 28px 32px;
   }
   .logo {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 2.5rem;
-    color: var(--navy);
-    letter-spacing: -0.02em;
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    text-decoration: none;
+    margin-left: -2px;
   }
-  .logo span { color: var(--accent); }
+  .logo img {
+    display: block;
+    height: 40px;
+    width: auto;
+    max-width: 100%;
+  }
   .nav-links {
     display: flex;
     align-items: center;
@@ -808,6 +816,7 @@
   /* ---- RESPONSIVE ---- */
   @media (max-width: 768px) {
     nav { padding: 20px 20px; }
+    .logo img { height: 32px; }
     .nav-toggle { display: block; }
     .nav-links {
       display: none;
@@ -859,7 +868,9 @@
 
 <!-- NAV -->
 <nav>
-  <div class="logo">Vista<span>Vitals</span></div>
+  <a href="/" class="logo" aria-label="Vista Vitals home">
+    <img src="/vistavitals-logo.png" alt="Vista Vitals" width="271" height="40">
+  </a>
   <button class="nav-toggle" aria-label="Toggle navigation">
     <span></span>
     <span></span>

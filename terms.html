@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terms of Service | Vista Vitals</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
     
@@ -28,11 +31,17 @@
     }
     
     header .logo {
-      color: #fff;
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
       text-decoration: none;
+    }
+
+    header .logo img {
+      display: block;
+      height: 36px;
+      width: auto;
+      filter: brightness(0) invert(1);
     }
     
     header nav a {
@@ -109,7 +118,9 @@
 <body>
   <header>
     <div class="container">
-      <a href="https://vistavitals.com" class="logo">Vista Vitals</a>
+      <a href="https://vistavitals.com" class="logo" aria-label="Vista Vitals home">
+        <img src="/vistavitals-logo.png" alt="Vista Vitals" width="244" height="36">
+      </a>
       <nav>
         <a href="https://vistavitals.com">Home</a>
         <a href="https://vistavitals.com/terms">Terms</a>
