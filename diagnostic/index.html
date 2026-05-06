@@ -20,40 +20,47 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap');
 
 :root {
-  --vv-vista: #1B2A4A;       /* dark navy from logo */
-  --vv-vitals: #2589A8;      /* teal-blue from logo */
-  --navy: #1B2A4A;
-  --dark: #0F1A2E;
-  --accent: #3B82F6;
-  --coral: #E8593C;
-  --teal: #2589A8;
+  /* Vista Vitals brand */
+  --vv-vista: #1B2A4A;        /* navy from logo */
+  --vv-vitals: #2589A8;       /* teal from logo */
+  --vv-vitals-dark: #1d6f8a;  /* darker teal for hover */
+  --vv-vista-dark: #11192e;   /* darker navy for hover */
+
+  /* Tints */
+  --tint-teal-bg: #f1f8fb;    /* very light teal tint */
+  --tint-teal-border: #d5e7ee;
+  --tint-navy-bg: #f7f9fc;    /* very light navy tint */
+
+  /* Semantic */
   --green: #059669;
-  --amber: #BA7517;
+  --green-tint: #ecfdf5;
+  --green-border: #a7f3d0;
   --red: #dc2626;
+
+  /* Neutrals */
   --text: #1f2937;
   --muted: #6b7280;
   --border: #e5e7eb;
-  --light: #F8FAFC;
-  --cream: #FAF6EE;
+  --light: #f8fafc;
+  --white: #ffffff;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
   font-family: 'DM Sans', sans-serif;
-  background: #fff;
+  background: var(--white);
   color: var(--text);
   line-height: 1.6;
 }
 
-/* ─── Sticky header (white, with logo + progress) ─── */
+/* ─── Sticky header ─── */
 .sticky-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #fff;
+  background: var(--white);
   padding: 14px 32px;
   display: flex;
   justify-content: space-between;
@@ -62,7 +69,6 @@ body {
   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
   gap: 24px;
 }
-
 .vv-logo {
   font-family: 'DM Sans', sans-serif;
   font-weight: 800;
@@ -73,11 +79,7 @@ body {
 }
 .vv-logo .vista { color: var(--vv-vista); }
 .vv-logo .vitals { color: var(--vv-vitals); }
-
-.vv-logo-img {
-  height: 36px;
-  width: auto;
-}
+.vv-logo-img { height: 36px; width: auto; }
 
 .progress-info {
   display: flex;
@@ -87,20 +89,18 @@ body {
   color: var(--text);
   font-weight: 600;
 }
-.progress-info .answered-text {
-  color: var(--muted);
-  letter-spacing: 0.02em;
-}
+.progress-info.hidden { visibility: hidden; }
+.progress-info .answered-text { color: var(--muted); letter-spacing: 0.02em; }
 .progress-info .progress-bar {
   width: 180px;
   height: 6px;
-  background: #e5e7eb;
+  background: var(--border);
   border-radius: 3px;
   overflow: hidden;
 }
 .progress-info .progress-fill {
   height: 100%;
-  background: var(--coral);
+  background: var(--vv-vitals);
   width: 0%;
   transition: width 0.3s ease;
 }
@@ -110,42 +110,32 @@ body {
   font-style: italic;
   color: var(--vv-vista);
 }
-.progress-info .live-score .num {
-  color: var(--vv-vitals);
-  font-weight: 600;
-}
+.progress-info .live-score .num { color: var(--vv-vitals); font-weight: 600; }
 
 @media (max-width: 720px) {
-  .sticky-header {
-    flex-direction: column;
-    gap: 10px;
-    padding: 12px 16px;
-  }
+  .sticky-header { flex-direction: column; gap: 10px; padding: 12px 16px; }
   .progress-info .progress-bar { width: 140px; }
   .vv-logo { font-size: 22px; }
 }
 
-/* ─── Hero (white background) ─── */
+/* ─── Hero ─── */
 .hero {
-  background: #fff;
+  background: var(--white);
   color: var(--text);
   padding: 80px 24px 60px;
   text-align: center;
 }
-.hero-inner {
-  max-width: 760px;
-  margin: 0 auto;
-}
+.hero-inner { max-width: 760px; margin: 0 auto; }
 .hero-eyebrow {
   display: inline-block;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--coral);
+  color: var(--vv-vitals);
   margin-bottom: 22px;
   padding: 8px 16px;
-  background: rgba(232, 89, 60, 0.08);
+  background: var(--tint-teal-bg);
   border-radius: 100px;
 }
 .hero h1 {
@@ -157,10 +147,7 @@ body {
   margin-bottom: 20px;
   color: var(--vv-vista);
 }
-.hero h1 em {
-  color: var(--vv-vitals);
-  font-style: italic;
-}
+.hero h1 em { color: var(--vv-vitals); font-style: italic; }
 .hero-sub {
   font-size: 17px;
   color: var(--muted);
@@ -169,15 +156,15 @@ body {
   margin: 0 auto;
 }
 
-/* ─── Intro / bio card ─── */
+/* ─── Bio / intro card ─── */
 .intro-section {
   max-width: 720px;
-  margin: 0 auto 60px;
+  margin: 0 auto 40px;
   padding: 0 24px;
 }
 .intro-card {
-  background: var(--cream);
-  border-left: 4px solid var(--coral);
+  background: var(--tint-teal-bg);
+  border-left: 4px solid var(--vv-vitals);
   padding: 28px 32px;
   border-radius: 12px;
   font-size: 15px;
@@ -188,18 +175,110 @@ body {
 .intro-card p { margin-bottom: 14px; }
 .intro-card p:last-child { margin-bottom: 0; }
 
+/* ─── Gate form (light card) ─── */
+.gate-section {
+  max-width: 540px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+.gate-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-top: 4px solid var(--vv-vitals);
+  border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 14px 40px rgba(15, 26, 46, 0.08);
+}
+.gate-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vv-vitals);
+  margin-bottom: 12px;
+}
+.gate-card h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 10px;
+  color: var(--vv-vista);
+}
+.gate-card .gate-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+.gate-row { margin-bottom: 14px; }
+.gate-row label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--vv-vitals);
+  margin-bottom: 6px;
+}
+.gate-row input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  background: var(--tint-teal-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  color: var(--vv-vista);
+}
+.gate-row input::placeholder { color: rgba(27, 42, 74, 0.35); }
+.gate-row input:focus {
+  outline: none;
+  border-color: var(--vv-vitals);
+  background: var(--white);
+}
+.gate-submit {
+  background: var(--vv-vista);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  padding: 14px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.15s ease;
+}
+.gate-submit:hover {
+  background: var(--vv-vitals);
+  transform: translateY(-1px);
+}
+.gate-privacy {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
 /* ─── Questions ─── */
 .questions-section {
+  display: none;
   max-width: 760px;
   margin: 0 auto 60px;
   padding: 0 24px;
 }
+.questions-section.visible { display: block; }
+
 .section-eyebrow {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--coral);
+  color: var(--vv-vitals);
   text-align: center;
   margin-bottom: 12px;
 }
@@ -224,7 +303,7 @@ body {
 }
 
 .question {
-  background: #fff;
+  background: var(--white);
   border: 1.5px solid var(--border);
   border-radius: 14px;
   padding: 28px 30px;
@@ -233,12 +312,12 @@ body {
 }
 .question.answered {
   border-color: var(--vv-vitals);
-  background: #f8fcfd;
+  background: var(--tint-teal-bg);
 }
 .question .q-num {
   display: inline-block;
   background: var(--vv-vista);
-  color: #fff;
+  color: var(--white);
   width: 30px; height: 30px;
   border-radius: 50%;
   text-align: center;
@@ -255,15 +334,12 @@ body {
   line-height: 1.4;
   margin-bottom: 18px;
 }
-.question .q-buttons {
-  display: flex;
-  gap: 12px;
-}
+.question .q-buttons { display: flex; gap: 12px; }
 .q-btn {
   flex: 1;
   padding: 14px 20px;
   border: 2px solid var(--border);
-  background: #fff;
+  background: var(--white);
   border-radius: 10px;
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
@@ -278,27 +354,18 @@ body {
   color: var(--vv-vista);
   transform: translateY(-1px);
 }
-.q-btn.q-yes.selected {
-  background: var(--green);
-  color: #fff;
-  border-color: var(--green);
-}
-.q-btn.q-no.selected {
-  background: var(--red);
-  color: #fff;
-  border-color: var(--red);
-}
-.q-btn.unselected {
-  opacity: 0.4;
-}
+.q-btn.q-yes.selected { background: var(--green); color: var(--white); border-color: var(--green); }
+.q-btn.q-no.selected { background: var(--red); color: var(--white); border-color: var(--red); }
+.q-btn.unselected { opacity: 0.4; }
 
-/* ─── Results section (navy for contrast) ─── */
+/* ─── Results section (white background, navy/teal accents) ─── */
 .results-section {
   display: none;
-  background: var(--navy);
-  color: #fff;
-  padding: 80px 24px;
-  margin-top: 40px;
+  background: var(--white);
+  color: var(--text);
+  padding: 80px 24px 60px;
+  margin-top: 20px;
+  border-top: 1px solid var(--border);
 }
 .results-section.visible {
   display: block;
@@ -308,15 +375,9 @@ body {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.results-inner {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-}
+.results-inner { max-width: 720px; margin: 0 auto; text-align: center; }
 
-.score-display {
-  margin-bottom: 36px;
-}
+.score-display { margin-bottom: 36px; }
 .score-label {
   font-size: 12px;
   font-weight: 800;
@@ -331,12 +392,12 @@ body {
   font-weight: 400;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: #fff;
+  color: var(--vv-vista);
   margin-bottom: 6px;
 }
 .score-of {
   font-size: 14px;
-  color: #94a3b8;
+  color: var(--muted);
   letter-spacing: 0.04em;
   margin-bottom: 30px;
 }
@@ -346,23 +407,24 @@ body {
   font-weight: 400;
   line-height: 1.15;
   margin-bottom: 14px;
-  color: #fff;
+  color: var(--vv-vista);
 }
 .tier-desc {
   font-size: 17px;
   line-height: 1.6;
-  color: #cbd5e1;
+  color: var(--text);
   max-width: 580px;
   margin: 0 auto 40px;
 }
 
-/* CTA card (shows for score <= 8) */
+/* CTA card — teal background (Vista Vitals brand action) */
 .cta-card {
-  background: linear-gradient(135deg, var(--coral) 0%, #d44a30 100%);
+  background: var(--vv-vitals);
   border-radius: 16px;
   padding: 36px 32px;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
   text-align: left;
+  box-shadow: 0 14px 40px rgba(37, 137, 168, 0.18);
 }
 .cta-card h3 {
   font-family: 'Instrument Serif', serif;
@@ -370,7 +432,7 @@ body {
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 12px;
-  color: #fff;
+  color: var(--white);
 }
 .cta-card p {
   font-size: 15px;
@@ -381,12 +443,12 @@ body {
 .cta-card .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
 }
 .btn-cta {
-  background: #fff;
-  color: var(--coral);
+  background: var(--white);
+  color: var(--vv-vitals);
   padding: 14px 28px;
   border-radius: 8px;
   font-weight: 800;
@@ -396,20 +458,21 @@ body {
   display: inline-block;
   transition: all 0.15s ease;
 }
-.btn-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+.btn-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
 .cta-or {
   font-size: 13px;
   color: rgba(255,255,255,0.85);
   font-style: italic;
 }
-.cta-or strong { color: #fff; }
+.cta-or strong { color: var(--white); }
 
-/* "Well-oiled" message (score 9-10) */
+/* "Well-oiled" message — light green tint */
 .well-oiled {
-  background: linear-gradient(135deg, var(--green) 0%, #047857 100%);
+  background: var(--green-tint);
+  border: 1.5px solid var(--green-border);
   border-radius: 16px;
   padding: 36px 32px;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
   text-align: left;
 }
 .well-oiled h3 {
@@ -418,114 +481,19 @@ body {
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 12px;
-  color: #fff;
+  color: var(--green);
 }
 .well-oiled p {
   font-size: 15px;
   line-height: 1.6;
-  color: rgba(255,255,255,0.95);
+  color: var(--vv-vista);
 }
 
-/* Form */
-.form-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  padding: 32px 30px;
-  text-align: left;
-}
-.form-card h3 {
-  font-family: 'Instrument Serif', serif;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 8px;
-  color: #fff;
-}
-.form-card .form-sub {
-  font-size: 13px;
-  color: #94a3b8;
-  margin-bottom: 22px;
-  line-height: 1.5;
-}
-.form-row {
-  margin-bottom: 14px;
-}
-.form-row label {
-  display: block;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--vv-vitals);
-  margin-bottom: 6px;
-}
-.form-row input {
-  width: 100%;
-  padding: 12px 14px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  background: rgba(255,255,255,0.08);
-  border: 1.5px solid rgba(255,255,255,0.18);
-  border-radius: 8px;
-  color: #fff;
-}
-.form-row input::placeholder { color: rgba(203,213,225,0.45); }
-.form-row input:focus { outline: none; border-color: var(--coral); }
-.form-submit {
-  background: var(--coral);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  padding: 14px 24px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 8px;
-  transition: all 0.15s ease;
-}
-.form-submit:hover { background: #c44a30; transform: translateY(-1px); }
-.form-privacy {
-  font-size: 11px;
-  color: rgba(203,213,225,0.6);
-  text-align: center;
-  margin-top: 12px;
-  line-height: 1.5;
-}
-
-.form-success {
-  display: none;
-  background: rgba(5, 150, 105, 0.15);
-  border: 1px solid rgba(5, 150, 105, 0.4);
-  border-radius: 16px;
-  padding: 28px 30px;
-  text-align: center;
-  color: #fff;
-}
-.form-success.visible { display: block; }
-.form-success h3 {
-  font-family: 'Instrument Serif', serif;
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 8px;
-}
-.form-success p {
-  font-size: 14px;
-  color: #cbd5e1;
-  line-height: 1.6;
-}
-
-/* Restart button */
-.restart-row {
-  margin-top: 36px;
-  text-align: center;
-}
+.restart-row { margin-top: 28px; text-align: center; }
 .btn-restart {
   background: transparent;
-  color: #94a3b8;
-  border: 1px solid rgba(255,255,255,0.18);
+  color: var(--muted);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 10px 20px;
   font-family: 'DM Sans', sans-serif;
@@ -535,11 +503,13 @@ body {
   cursor: pointer;
   transition: all 0.15s ease;
 }
-.btn-restart:hover { color: #fff; border-color: #fff; }
+.btn-restart:hover {
+  color: var(--vv-vista);
+  border-color: var(--vv-vista);
+}
 
-/* Footer */
 footer {
-  background: #fff;
+  background: var(--white);
   color: var(--muted);
   padding: 36px 24px;
   text-align: center;
@@ -547,19 +517,18 @@ footer {
   border-top: 1px solid var(--border);
 }
 footer .vv-logo { display: inline-block; margin-bottom: 8px; }
-footer .tag {
-  font-style: italic;
-  color: var(--muted);
-  font-size: 12px;
-}
+footer .tag { font-style: italic; color: var(--muted); font-size: 12px; }
 
 @media (max-width: 640px) {
   .hero h1 { font-size: 38px; }
   .hero { padding: 48px 20px 40px; }
   .intro-card { padding: 22px 22px; }
+  .gate-card { padding: 32px 26px; }
   .question { padding: 22px 20px; }
   .score-big { font-size: 80px; }
   .tier-name { font-size: 28px; }
+  .cta-card { padding: 28px 24px; }
+  .cta-card h3 { font-size: 24px; }
 }
 </style>
 </head>
@@ -567,11 +536,12 @@ footer .tag {
 
 <!-- ════════════════════════════════════════════ -->
 <!-- HIDDEN NETLIFY FORM (for build-time detection) -->
+<!-- The actual submission happens via JavaScript at the end of the test -->
 <!-- ════════════════════════════════════════════ -->
 <form name="diagnostic" netlify netlify-honeypot="bot-field" hidden>
   <input type="text" name="name" />
   <input type="email" name="email" />
-  <input type="text" name="business" />
+  <input type="text" name="company" />
   <input type="text" name="score" />
   <input type="text" name="tier" />
   <input type="text" name="answers" />
@@ -580,10 +550,10 @@ footer .tag {
 
 <!-- ─── Sticky header (logo + live progress) ─── -->
 <header class="sticky-header">
-  <a href="/" class="vv-logo" style="text-decoration:none">
+  <div class="vv-logo">
     <span class="vista">Vista</span><span class="vitals">Vitals</span>
-  </a>
-  <div class="progress-info">
+  </div>
+  <div class="progress-info hidden" id="progressInfo">
     <span class="answered-text" id="progressText">0 of 10 answered</span>
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     <div class="live-score">Score: <span class="num" id="liveScore">0</span></div>
@@ -608,8 +578,34 @@ footer .tag {
   </div>
 </div>
 
-<!-- ─── Questions ─── -->
-<section class="questions-section">
+<!-- ─── Gate form ─── -->
+<section class="gate-section" id="gateSection">
+  <div class="gate-card">
+    <div class="gate-eyebrow">Begin the self-diagnostic</div>
+    <h2>Tell us about you to get started.</h2>
+    <p class="gate-sub">Three quick fields. Once you submit, the 10 questions appear and your score updates live as you answer.</p>
+
+    <form id="gateForm" novalidate>
+      <div class="gate-row">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required placeholder="Carlos Perez" autocomplete="name">
+      </div>
+      <div class="gate-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@yourcompany.com" autocomplete="email">
+      </div>
+      <div class="gate-row">
+        <label for="company">Company Name</label>
+        <input type="text" id="company" name="company" required placeholder="Your company" autocomplete="organization">
+      </div>
+      <button type="submit" class="gate-submit">Start the Self-Diagnostic →</button>
+      <div class="gate-privacy">We never share your info. Unsubscribe anytime.</div>
+    </form>
+  </div>
+</section>
+
+<!-- ─── Questions (hidden until gate is passed) ─── -->
+<section class="questions-section" id="questionsSection">
   <div class="section-eyebrow">10 questions</div>
   <h2 class="section-title">Score yourself.</h2>
   <p class="section-lede">Answer YES only if you can confidently answer the underlying question right now, without opening a file. Otherwise NO.</p>
@@ -734,39 +730,6 @@ footer .tag {
       <p>You're in rare company. Most owners can't answer this many questions confidently. Keep going — and if you ever want a second set of eyes, you know where to find me.</p>
     </div>
 
-    <!-- Lead capture form -->
-    <form name="diagnostic" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form-card" id="leadForm" action="/diagnostic/thanks">
-      <input type="hidden" name="form-name" value="diagnostic">
-      <p hidden><label>Don't fill this out: <input name="bot-field" /></label></p>
-      <input type="hidden" name="score" id="formScore">
-      <input type="hidden" name="tier" id="formTier">
-      <input type="hidden" name="answers" id="formAnswers">
-
-      <h3>Send me my results</h3>
-      <p class="form-sub">We'll email you a copy of your score and a personalized next-step plan based on your answers.</p>
-
-      <div class="form-row">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required placeholder="Carlos Perez">
-      </div>
-      <div class="form-row">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="you@yourcompany.com">
-      </div>
-      <div class="form-row">
-        <label for="business">Business Name</label>
-        <input type="text" id="business" name="business" required placeholder="Your company">
-      </div>
-
-      <button type="submit" class="form-submit">Send my results →</button>
-      <div class="form-privacy">We don't spam. Unsubscribe anytime.</div>
-    </form>
-
-    <div class="form-success" id="formSuccess">
-      <h3>Got it — your results are on the way.</h3>
-      <p>Check your email in the next few minutes. If you didn't already book a call above, that's still your fastest path to action.</p>
-    </div>
-
     <div class="restart-row">
       <button type="button" class="btn-restart" onclick="restartTest()">Restart test</button>
     </div>
@@ -784,6 +747,7 @@ footer .tag {
 (function () {
   var answers = {};
   var totalQuestions = 10;
+  var userData = {};
 
   function updateScoreBar() {
     var answered = Object.keys(answers).length;
@@ -798,6 +762,26 @@ footer .tag {
     if (score >= 7) return { name: 'Solid with room for improvement.', desc: 'You have most of the right pieces in place. The "no" answers are where surprises will come from — and where there\'s margin to gain.', cta: true };
     if (score >= 3) return { name: 'Standard SMB.', desc: 'You\'re in good company — and that\'s the problem. Visible blind spots and recurring leaks. Most growing businesses score here.', cta: true };
     return { name: 'Reactive mode.', desc: 'Your finance function is recording the past, not running the future. You\'re flying blind on what\'s coming.', cta: true };
+  }
+
+  function submitToNetlify(yesCount, tier) {
+    var formData = new URLSearchParams();
+    formData.append('form-name', 'diagnostic');
+    formData.append('name', userData.name || '');
+    formData.append('email', userData.email || '');
+    formData.append('company', userData.company || '');
+    formData.append('score', yesCount);
+    formData.append('tier', tier.name);
+    formData.append('answers', JSON.stringify(answers));
+    formData.append('bot-field', '');
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: formData.toString()
+    }).catch(function (err) {
+      console.error('Netlify submission failed:', err);
+    });
   }
 
   function showResults() {
@@ -816,18 +800,47 @@ footer .tag {
       document.getElementById('wellOiled').style.display = 'block';
     }
 
-    document.getElementById('formScore').value = yesCount;
-    document.getElementById('formTier').value = tier.name;
-    document.getElementById('formAnswers').value = JSON.stringify(answers);
-
     var results = document.getElementById('results');
     results.classList.add('visible');
+
+    submitToNetlify(yesCount, tier);
 
     setTimeout(function () {
       results.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 200);
   }
 
+  // Gate form submit
+  document.getElementById('gateForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var nameField = document.getElementById('name');
+    var emailField = document.getElementById('email');
+    var companyField = document.getElementById('company');
+
+    if (!nameField.value.trim() || !emailField.value.trim() || !companyField.value.trim()) {
+      alert('Please fill in all three fields to begin.');
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim())) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    userData.name = nameField.value.trim();
+    userData.email = emailField.value.trim();
+    userData.company = companyField.value.trim();
+
+    document.getElementById('gateSection').style.display = 'none';
+    document.getElementById('questionsSection').classList.add('visible');
+    document.getElementById('progressInfo').classList.remove('hidden');
+
+    setTimeout(function () {
+      document.querySelector('.question').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  });
+
+  // Question handling
   document.querySelectorAll('.question').forEach(function (q) {
     var qNum = q.getAttribute('data-q');
     q.querySelectorAll('.q-btn').forEach(function (btn) {
