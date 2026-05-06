@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thanks — Vista Vitals</title>
+<meta name="description" content="Your diagnostic results are on the way.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  --vv-vista: #1B2A4A;
+  --vv-vitals: #2589A8;
+  --navy: #1B2A4A;
+  --coral: #E8593C;
+  --green: #059669;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #fff;
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-header {
+  background: #fff;
+  padding: 14px 32px;
+  border-bottom: 1px solid var(--border);
+}
+.vv-logo {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-decoration: none;
+}
+.vv-logo .vista { color: var(--vv-vista); }
+.vv-logo .vitals { color: var(--vv-vitals); }
+
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+}
+
+.card {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+.success-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(5, 150, 105, 0.1);
+  color: var(--green);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+}
+.success-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  margin-bottom: 18px;
+  color: var(--vv-vista);
+}
+h1 em {
+  color: var(--vv-vitals);
+  font-style: italic;
+}
+
+.lede {
+  font-size: 17px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.btn-primary {
+  background: var(--coral);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.15s ease;
+}
+.btn-primary:hover { background: #c44a30; transform: translateY(-1px); }
+.btn-secondary {
+  background: transparent;
+  color: var(--vv-vista);
+  border: 1.5px solid var(--border);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.15s ease;
+}
+.btn-secondary:hover { border-color: var(--vv-vista); }
+
+footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+footer .tag { font-style: italic; }
+
+@media (max-width: 640px) {
+  h1 { font-size: 36px; }
+  .sticky-header { padding: 12px 16px; }
+}
+</style>
+</head>
+<body>
+
+<header class="sticky-header">
+  <a href="/" class="vv-logo">
+    <span class="vista">Vista</span><span class="vitals">Vitals</span>
+  </a>
+</header>
+
+<main>
+  <div class="card">
+    <div class="success-badge">Submitted</div>
+    <h1>Got it — your results are <em>on the way</em>.</h1>
+    <p class="lede">Check your email in the next few minutes. If you didn't already book a call, that's still your fastest path to action.</p>
+    <div class="actions">
+      <a href="https://calendly.com/carlos-vistavitals/free-15-min-consultation" target="_blank" rel="noopener" class="btn-primary">Book a free 15-min call →</a>
+      <a href="/" class="btn-secondary">Back to homepage</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="tag">Your outsourced finance department.</div>
+</footer>
+
+</body>
+</html>
