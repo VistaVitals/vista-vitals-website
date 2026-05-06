@@ -760,7 +760,7 @@ footer .tag { font-style: italic; color: var(--muted); font-size: 12px; }
   function getTier(score) {
     if (score >= 9) return { name: 'Well-oiled machine.', desc: 'Your finance function is running like it should. Keep going.', cta: false };
     if (score >= 7) return { name: 'Solid with room for improvement.', desc: 'You have most of the right pieces in place. The "no" answers are where surprises will come from — and where there\'s margin to gain.', cta: true };
-    if (score >= 3) return { name: 'Standard SMB.', desc: 'You\'re in good company — and that\'s the problem. Visible blind spots and recurring leaks. Most growing businesses score here.', cta: true };
+    if (score >= 5) return { name: 'Foundational.', desc: 'Foundation\'s in place. The strategic layer isn\'t. Each "no" answer is likely costing you money or limiting growth.', cta: true };
     return { name: 'Reactive mode.', desc: 'Your finance function is recording the past, not running the future. You\'re flying blind on what\'s coming.', cta: true };
   }
 
