@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostic | Vista Vitals</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1B2A4A;
+      --accent: #2E86AB;
+      --accent-light: #E8F4F8;
+      --green: #28A745;
+      --bg: #FAFBFC;
+      --white: #FFFFFF;
+      --text: #333D47;
+      --text-light: #6B7685;
+      --border: #E2E8F0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: var(--navy);
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header .logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    header .logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    main {
+      flex: 1;
+      padding: 64px 0;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #E6F7EC;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    h1 {
+      font-size: 32px;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+
+    .item-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .item-value {
+      font-weight: 600;
+      color: var(--navy);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 14px;
+      word-break: break-all;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-light);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .card { padding: 32px 24px; }
+      h1 { font-size: 24px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a class="logo" href="/">
+        <img src="/vistavitals-logo.png" alt="Vista Vitals">
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="card">
+        <span class="status">Live</span>
+        <h1>Diagnostic page</h1>
+        <p>This subroute is served from the <code>/diagnostic</code> folder at the site root and is deployed by Netlify as part of the live site.</p>
+        <p>If you are reading this in a browser, the route resolves correctly and the deploy is healthy.</p>
+
+        <div class="grid">
+          <div class="item">
+            <div class="item-label">Path</div>
+            <div class="item-value" id="path">/diagnostic</div>
+          </div>
+          <div class="item">
+            <div class="item-label">Host</div>
+            <div class="item-value" id="host">—</div>
+          </div>
+          <div class="item">
+            <div class="item-label">Loaded at</div>
+            <div class="item-value" id="loaded">—</div>
+          </div>
+          <div class="item">
+            <div class="item-label">User agent</div>
+            <div class="item-value" id="ua">—</div>
+          </div>
+        </div>
+
+        <p style="margin-top: 32px;"><a href="/">← Back to the homepage</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">&copy; Vista Vitals</div>
+  </footer>
+
+  <script>
+    document.getElementById('path').textContent = window.location.pathname;
+    document.getElementById('host').textContent = window.location.host;
+    document.getElementById('loaded').textContent = new Date().toISOString();
+    document.getElementById('ua').textContent = navigator.userAgent;
+  </script>
+</body>
+</html>
