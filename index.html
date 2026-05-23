@@ -261,90 +261,6 @@
     max-width: 700px;
   }
 
-  /* Mock diagnostic card */
-  .diag-card {
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 36px 40px;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .diag-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 28px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  .diag-header h3 {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--navy);
-  }
-  .diag-sample-label {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    font-weight: 500;
-  }
-  .diag-score {
-    background: var(--navy);
-    color: var(--white);
-    font-weight: 700;
-    font-size: 0.9rem;
-    padding: 6px 16px;
-    border-radius: 100px;
-  }
-  .diag-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #F0F2F5;
-  }
-  .diag-row:last-child { border-bottom: none; }
-  .diag-metric {
-    font-weight: 500;
-    color: var(--navy);
-    font-size: 0.95rem;
-  }
-  .diag-values {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .diag-val {
-    font-size: 0.95rem;
-    color: var(--text);
-    min-width: 70px;
-    text-align: right;
-  }
-  .diag-val.prior { color: var(--text-light); font-size: 0.85rem; }
-  .status {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 3px 10px;
-    border-radius: 100px;
-    min-width: 72px;
-    text-align: center;
-  }
-  .status.healthy { background: #E6F9ED; color: var(--green); }
-  .status.watch { background: #FFF6E0; color: #C88B00; }
-  .status.critical { background: #FEE; color: var(--red); }
-
-  .diag-footer {
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-    font-size: 0.9rem;
-    color: var(--text-light);
-    line-height: 1.6;
-  }
-  .diag-footer strong { color: var(--navy); }
 
   /* ---- WHAT YOU GET ---- */
   .deliverables {
@@ -845,10 +761,6 @@
       grid-template-columns: 1fr;
     }
     .panel-section { padding: 48px 16px; }
-    .diag-card { padding: 20px 16px; }
-    .diag-header { flex-direction: column; gap: 12px; align-items: flex-start; }
-    .diag-row { flex-direction: column; align-items: flex-start; gap: 8px; }
-    .diag-values { flex-wrap: wrap; gap: 12px; }
     .deliverables { padding: 48px 20px; }
     .audience { padding: 48px 20px; }
     .pricing { padding: 48px 20px; }
@@ -926,102 +838,6 @@
     <p class="subtitle">Vista Vitals surfaces what actually matters.</p>
     <p class="subtitle" style="font-size: clamp(1rem, 1.8vw, 1.2rem); font-family: 'DM Sans', sans-serif; font-weight: 400; opacity: 0.85; margin-top: 32px; margin-bottom: 40px;">Monthly bloodwork for your business - continuously monitored and interpreted by your dedicated finance team.</p>
 
-    <div class="diag-card">
-      <div class="diag-header">
-        <h3>Vista Vitals Financial Health Panel</h3>
-        <span class="diag-sample-label">Sample: March 2026</span>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Cash Runway</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 4.2 mo</span>
-          <span class="diag-val">3.1 mo</span>
-          <span class="status watch">WATCH</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Gross Margin</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 41.8%</span>
-          <span class="diag-val">42.1%</span>
-          <span class="status healthy">HEALTHY</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Top Client Concentration</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 35%</span>
-          <span class="diag-val">38%</span>
-          <span class="status critical">CRITICAL</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Net Margin</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 12.4%</span>
-          <span class="diag-val">10.6%</span>
-          <span class="status watch">WATCH</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Customer Churn</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 3.1%</span>
-          <span class="diag-val">2.8%</span>
-          <span class="status healthy">HEALTHY</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Overhead Ratio</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 27.4%</span>
-          <span class="diag-val">29.1%</span>
-          <span class="status watch">WATCH</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">AR Days Outstanding</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 34 days</span>
-          <span class="diag-val">31 days</span>
-          <span class="status healthy">HEALTHY</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Revenue Growth (MoM / YoY)</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: +2.1% / +14.3%</span>
-          <span class="diag-val">+3.4% / +16.8%</span>
-          <span class="status healthy">HEALTHY</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Current Ratio</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 1.9</span>
-          <span class="diag-val">1.7</span>
-          <span class="status watch">WATCH</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Revenue per Employee</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: $104K</span>
-          <span class="diag-val">$105K</span>
-          <span class="status healthy">HEALTHY</span>
-        </div>
-      </div>
-      <div class="diag-row">
-        <span class="diag-metric">Debt Service Coverage (DSCR)</span>
-        <div class="diag-values">
-          <span class="diag-val prior">Prior: 1.95x</span>
-          <span class="diag-val">1.96x</span>
-          <span class="status healthy">HEALTHY</span>
-        </div>
-      </div>
-      <div class="diag-footer">
-        <strong>Analyst Note:</strong> Net margin compressed 1.8 points this month, driven by the new hire in operations. Revenue per employee held strong at $105K. MoM revenue growth accelerated to +3.4%, a positive signal. Current ratio slipped to 1.7 from 1.9; still adequate but worth monitoring alongside the cash runway watch. DSCR remains comfortably above 1.25x. Client concentration jumped 3 points to 38%, elevating risk. If this client delays payment or churns, cash runway drops below 2 months.</div>
-    </div>
   </div>
 </section>
 
