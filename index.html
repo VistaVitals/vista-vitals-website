@@ -628,49 +628,6 @@
     margin: 0 auto;
   }
 
-  /* ---- ABOUT ---- */
-  .about {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 80px 32px 60px;
-  }
-  .about-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .about-inner > .section-label { text-align: center; }
-  .about-inner > h2 {
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400;
-    font-size: 2rem;
-    color: var(--navy);
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  .about-inner p {
-    color: var(--text-light);
-    font-size: 1.02rem;
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-  .about-inner p:last-child { margin-bottom: 0; }
-  .about-location {
-    text-align: center;
-    margin-top: 36px;
-    padding-top: 24px;
-    border-top: 1px solid var(--border);
-  }
-  .about-location h3 {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 6px;
-  }
-  .about-location p {
-    font-size: 0.92rem;
-    color: var(--text-light);
-    margin-bottom: 0;
-  }
 
   /* ---- CTA ---- */
   .final-cta {
@@ -744,7 +701,6 @@
     .forecast-header, .forecast-row { font-size: 0.7rem; }
     .service-sample-grid { grid-template-columns: 1fr !important; }
     .mini-row { font-size: 0.78rem; }
-    .about { padding: 48px 20px 40px; }
     .final-cta { padding: 48px 20px; }
   }
 </style>
@@ -764,6 +720,7 @@
   <div class="nav-links">
     <a href="#tiers">Services</a>
     <a href="#contact">Contact</a>
+    <a href="#about">About</a>
     <a href="https://portal.vistavitals.com" target="_blank" rel="noopener noreferrer" class="nav-portal-btn">Client Portal</a>
   </div>
 </nav>
@@ -979,22 +936,6 @@
     font-style: italic;
     color: #6A7886;
   }
-
-  .vv-pricing__cta {
-    display: block;
-    max-width: 1240px;
-    margin: 24px auto 0;
-    text-align: center;
-    padding: 13px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    background: #1B3A5C;
-    color: #fff;
-    border: none;
-  }
 </style>
 
   <p class="vv-pricing__heading">Your outsourced finance department</p>
@@ -1113,26 +1054,149 @@
   </div>
 
   <p class="vv-footnote">Onboarding &amp; cleanup quoted separately based on books condition.</p>
-  <a href="https://calendly.com/carlos-vistavitals/new-meeting" class="vv-pricing__cta">Book a discovery call</a>
 </section>
 
 <!-- ABOUT -->
-<section class="about">
-  <div class="about-inner">
-    <div class="section-label">About</div>
-    <h2>Built for operators</h2>
-    <p>Vista Vitals was built for operators who want a clearer view of their business. No fluff, no nonsense.</p>
-    <p>As companies grow, financial complexity doesn't arrive all at once. It builds quietly. Books still close. Statements still get delivered. But understanding what's changing operationally and financially becomes harder to spot month over month. Vista Vitals exists to make that change visible.</p>
-    <div class="about-location">
-      <h3>Florida Based. National Reach.</h3>
-      <p>Headquartered in Florida, Vista Vitals works with businesses across the United States.</p>
+<section class="vv-about" id="about">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+    .vv-about{
+      --navy:#1B2A4A; --teal:#3A8FAD; --ink:#2b3445; --muted:#6b7689;
+      --line:#e3e8ef; --bg:#f6f8fa; --card:#ffffff;
+      font-family:'Plus Jakarta Sans',sans-serif; color:var(--ink);
+      background:
+        radial-gradient(900px 500px at 88% -10%, rgba(58,143,173,.10), transparent 60%),
+        radial-gradient(700px 460px at -5% 110%, rgba(27,42,74,.06), transparent 60%),
+        var(--bg);
+      padding:clamp(2.5rem,6vw,6rem) clamp(1.25rem,5vw,5rem);
+      box-sizing:border-box; overflow:hidden;
+      scroll-margin-top:80px;
+    }
+    .vv-about *{box-sizing:border-box;}
+    .vv-about .vv-wrap{max-width:1120px;margin:0 auto;}
+
+    .vv-kicker{
+      font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+      color:var(--teal);margin:0 0 1.1rem;
+    }
+
+    .vv-top{
+      display:grid;grid-template-columns:300px 1fr;gap:clamp(2rem,5vw,4.5rem);
+      align-items:center;
+    }
+    @media(max-width:780px){.vv-top{grid-template-columns:1fr;gap:2.2rem;text-align:left;}}
+
+    .vv-photo-wrap{position:relative;width:300px;max-width:100%;margin:0 auto;}
+    @media(max-width:780px){.vv-photo-wrap{width:220px;margin:0;}}
+    .vv-photo-ring{
+      position:absolute;inset:-14px;border-radius:50%;
+      background:conic-gradient(from 220deg,var(--teal),var(--navy),var(--teal));
+      opacity:.18;filter:blur(2px);
+    }
+    .vv-photo{
+      position:relative;width:100%;aspect-ratio:1;border-radius:50%;object-fit:cover;
+      border:5px solid #fff;box-shadow:0 24px 60px -22px rgba(27,42,74,.55);
+      display:block;
+    }
+    .vv-name{font-weight:700;font-size:1.05rem;color:var(--navy);margin:1.25rem 0 .1rem;text-align:center;}
+    .vv-role{font-size:.85rem;color:var(--muted);text-align:center;}
+    @media(max-width:780px){.vv-name,.vv-role{text-align:left;}}
+
+    .vv-h{
+      font-family:'Fraunces',serif;font-weight:500;color:var(--navy);
+      font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.04;letter-spacing:-.01em;
+      margin:0 0 1.25rem;
+    }
+    .vv-h .accent{font-style:normal;color:var(--teal);}
+    .vv-p{font-size:1.02rem;line-height:1.62;color:var(--ink);margin:0 0 1rem;max-width:42rem;}
+    .vv-p strong{color:var(--navy);font-weight:600;}
+
+    .vv-rule{height:1px;background:var(--line);margin:clamp(2.5rem,5vw,3.5rem) 0;}
+    .vv-tl-label{
+      font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+      color:var(--muted);margin:0 0 1.6rem;
+    }
+    .vv-tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+    .vv-tl::before{
+      content:"";position:absolute;top:13px;left:7%;right:7%;height:2px;
+      background:linear-gradient(90deg,var(--line),var(--teal) 92%);z-index:0;
+    }
+    .vv-step{position:relative;z-index:1;text-align:center;padding:0 .5rem;}
+    .vv-dot{
+      width:28px;height:28px;border-radius:50%;margin:0 auto 1.1rem;
+      background:#fff;border:2px solid var(--line);
+      display:flex;align-items:center;justify-content:center;
+      font-size:.72rem;font-weight:700;color:var(--muted);
+    }
+    .vv-step:last-child .vv-dot{background:var(--teal);border-color:var(--teal);color:#fff;
+      box-shadow:0 0 0 6px rgba(58,143,173,.14);}
+    .vv-org{
+      font-family:'Fraunces',serif;font-weight:600;color:var(--navy);
+      font-size:clamp(.95rem,1.6vw,1.18rem);line-height:1.15;margin:0 0 .3rem;
+      letter-spacing:-.005em;
+    }
+    .vv-step:last-child .vv-org{color:var(--teal);}
+    .vv-sub{font-size:.78rem;color:var(--muted);letter-spacing:.01em;}
+    @media(max-width:680px){
+      .vv-tl{grid-template-columns:1fr;gap:0;}
+      .vv-tl::before{display:none;}
+      .vv-step{display:grid;grid-template-columns:28px 1fr;gap:1rem;text-align:left;
+        align-items:start;padding:0 0 1.6rem;position:relative;}
+      .vv-step::after{content:"";position:absolute;left:13px;top:30px;bottom:-2px;width:2px;
+        background:var(--line);}
+      .vv-step:last-child::after{display:none;}
+      .vv-dot{margin:0;}
+      .vv-org{margin-top:2px;}
+    }
+  </style>
+
+  <div class="vv-wrap">
+    <p class="vv-kicker">Founder</p>
+
+    <div class="vv-top">
+      <div>
+        <div class="vv-photo-wrap">
+          <div class="vv-photo-ring"></div>
+          <img class="vv-photo" src="/carlos-perez.png" alt="Carlos Perez, Founder and CEO of Vista Vitals">
+        </div>
+        <div class="vv-name">Carlos Perez</div>
+        <div class="vv-role">Founder &amp; CEO, Vista Vitals</div>
+      </div>
+
+      <div>
+        <h2 class="vv-h">Institutional-caliber<br><span class="accent">finance.</span></h2>
+        <p class="vv-p">I started my career in investment banking at J.P. Morgan, advising companies on M&amp;A and capital markets transactions. I then spent a decade at G-City in private equity and corporate M&amp;A roles, where I learned how strong companies use better financial systems, cleaner reporting, and sharper analysis to make better decisions and grow profits.</p>
+        <p class="vv-p">I built <strong>Vista Vitals</strong> to bring that same caliber of finance operations to small and mid-sized businesses. Not advice from the sidelines, but active back-office accounting and finance execution. Vista Vitals delivers the caliber of finance operations large companies rely on, for owners who can&rsquo;t justify a $300k+ in-house finance department.</p>
+      </div>
+    </div>
+
+    <div class="vv-rule"></div>
+
+    <p class="vv-tl-label">The path here</p>
+    <div class="vv-tl">
+      <div class="vv-step">
+        <div class="vv-dot">01</div>
+        <div><p class="vv-org">University of Chicago</p><p class="vv-sub">BA, Economics</p></div>
+      </div>
+      <div class="vv-step">
+        <div class="vv-dot">02</div>
+        <div><p class="vv-org">J.P. Morgan</p><p class="vv-sub">Investment Banking</p></div>
+      </div>
+      <div class="vv-step">
+        <div class="vv-dot">03</div>
+        <div><p class="vv-org">G-City</p><p class="vv-sub">VP, Investments / M&amp;A</p></div>
+      </div>
+      <div class="vv-step">
+        <div class="vv-dot">04</div>
+        <div><p class="vv-org">Vista Vitals</p><p class="vv-sub">Founder &amp; CEO</p></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
 <section class="final-cta" id="contact">
-  <h2>Ready to see what your numbers are actually saying?</h2>
   <p>Get in touch to see if Vista Vitals is right for your business.</p>
   <a href="https://calendly.com/carlos-vistavitals/new-meeting" class="cta-btn">Schedule a Call</a>
 </section>
