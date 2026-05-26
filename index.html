@@ -988,13 +988,8 @@
         <span class="vv-price__suffix">/month</span>
       </div>
 
-      <div class="vv-widget">
-        <div class="vv-widget__label">Financial Health Panel</div>
-        <div class="vv-widget__row"><span>Cash runway</span><span class="vv-widget__pill vv-pill--watch">WATCH</span></div>
-        <div class="vv-widget__row"><span>Net margin</span><span class="vv-widget__pill vv-pill--healthy">HEALTHY</span></div>
-        <div class="vv-widget__row"><span>Debt service coverage</span><span class="vv-widget__pill vv-pill--healthy">HEALTHY</span></div>
-        <div class="vv-widget__row"><span>AR days outstanding</span><span class="vv-widget__pill vv-pill--healthy">HEALTHY</span></div>
-        <div class="vv-widget__row"><span>Labor cost %</span><span class="vv-widget__pill vv-pill--risk">RISK</span></div>
+      <div class="vv-widget" style="padding:0;background:none;border:none;">
+        <img src="/cash_forecast.svg" alt="Rolling 3-Month Cash Forecast" style="width:100%;height:auto;display:block;border-radius:14px;">
       </div>
 
       <div class="vv-section-label">Everything in Core Accounting, plus</div>
@@ -1059,7 +1054,7 @@
 <!-- ABOUT -->
 <section class="vv-about" id="about">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,WONK@9..144,400,0;9..144,500,0;9..144,600,0&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
     .vv-about{
       --navy:#1B2A4A; --teal:#3A8FAD; --ink:#2b3445; --muted:#6b7689;
@@ -1106,7 +1101,7 @@
     .vv-h{
       font-family:'Fraunces',serif;font-weight:500;color:var(--navy);
       font-size:clamp(2rem,4.4vw,3.1rem);line-height:1.04;letter-spacing:-.01em;
-      margin:0 0 1.25rem;
+      margin:0 0 1.25rem;font-variation-settings:'WONK' 0;
     }
     .vv-h .accent{font-style:normal;color:var(--teal);}
     .vv-p{font-size:1.02rem;line-height:1.62;color:var(--ink);margin:0 0 1rem;max-width:42rem;}
@@ -1134,7 +1129,7 @@
     .vv-org{
       font-family:'Fraunces',serif;font-weight:600;color:var(--navy);
       font-size:clamp(.95rem,1.6vw,1.18rem);line-height:1.15;margin:0 0 .3rem;
-      letter-spacing:-.005em;
+      letter-spacing:-.005em;font-variation-settings:'WONK' 0;
     }
     .vv-step:last-child .vv-org{color:var(--teal);}
     .vv-sub{font-size:.78rem;color:var(--muted);letter-spacing:.01em;}
@@ -1165,7 +1160,7 @@
       </div>
 
       <div>
-        <h2 class="vv-h">Institutional-caliber<br><span class="accent">finance.</span></h2>
+        <h2 class="vv-h">Institutional-caliber<br><span class="accent">finance operations</span></h2>
         <p class="vv-p">I started my career in investment banking at J.P. Morgan, advising companies on M&amp;A and capital markets transactions. I then spent a decade at G-City in private equity and corporate M&amp;A roles, where I learned how strong companies use better financial systems, cleaner reporting, and sharper analysis to make better decisions and grow profits.</p>
         <p class="vv-p">I built <strong>Vista Vitals</strong> to bring that same caliber of finance operations to small and mid-sized businesses. Not advice from the sidelines, but active back-office accounting and finance execution. Vista Vitals delivers the caliber of finance operations large companies rely on, for owners who can&rsquo;t justify a $300k+ in-house finance department.</p>
       </div>
