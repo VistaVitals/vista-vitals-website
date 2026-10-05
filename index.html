@@ -742,7 +742,7 @@
     if (vvBooked || e.origin !== 'https://calendly.com') return;
     if (e.data && e.data.event === 'calendly.event_scheduled') {
       vvBooked = true;
-      gtag('event', 'conversion', {'send_to': VV_ADS_ID + '/' + VV_ADS_LABEL, 'value': 1.0, 'currency': 'USD'});
+      gtag('event', 'conversion', {'send_to': VV_ADS_ID + '/' + VV_ADS_LABEL});  // value is set in Google Ads
     }
   });
 </script>
