@@ -1396,14 +1396,26 @@
 </div>
 
 <script>
-  // Mobile: show a sticky booking bar once the hero button scrolls out of view (hidden again at the contact section)
+  // Mobile: show a sticky booking bar once the hero button scrolls out of view, hidden whenever the
+  // contact section or another on-page booking button is on screen (so two identical buttons never show)
   (function () {
     var bar = document.getElementById('sticky-book'), hero = document.getElementById('hero-cta'), contact = document.getElementById('contact');
     if (!bar || !hero || !('IntersectionObserver' in window)) return;
-    var heroVisible = true, contactVisible = false;
-    function update() { var on = !heroVisible && !contactVisible; bar.classList.toggle('show', on); bar.setAttribute('aria-hidden', on ? 'false' : 'true'); }
-    new IntersectionObserver(function (es) { heroVisible = es[0].isIntersecting; update(); }).observe(hero);
-    if (contact) new IntersectionObserver(function (es) { contactVisible = es[0].isIntersecting; update(); }).observe(contact);
+    var targets = [hero, contact].concat([].slice.call(document.querySelectorAll('.cta-btn.vv-book')).filter(function (a) {
+      return !bar.contains(a) && !hero.contains(a) && !(contact && contact.contains(a));
+    })).filter(Boolean);
+    var visible = [];
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var i = visible.indexOf(e.target);
+        if (e.isIntersecting && i < 0) visible.push(e.target);
+        if (!e.isIntersecting && i >= 0) visible.splice(i, 1);
+      });
+      var on = visible.length === 0;
+      bar.classList.toggle('show', on);
+      bar.setAttribute('aria-hidden', on ? 'false' : 'true');
+    });
+    targets.forEach(function (t) { io.observe(t); });
   })();
   document.querySelector('.nav-toggle').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('active');
