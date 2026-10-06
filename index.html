@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your dedicated finance & accounting team</title>
-<meta name="description" content="We handle your bookkeeping, payroll, bill pay and reporting — end to end, every month. And when needed, we layer in cash flow forecasting, scenario modeling, and CFO-level guidance.">
+<title>Outsourced Bookkeeping &amp; Accounting | Vista Vitals</title>
+<meta name="description" content="Outsourced bookkeeping and accounting for established small and mid-sized businesses. We handle your bookkeeping, payroll, bill pay and reporting, end to end, every month. Plans from $750/month.">
 <meta property="og:title" content="Your dedicated finance & accounting team">
 <meta property="og:description" content="We handle your bookkeeping, payroll, bill pay and reporting — end to end, every month. And when needed, we layer in cash flow forecasting, scenario modeling, and CFO-level guidance.">
 <meta property="og:type" content="website">
@@ -16,6 +16,8 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -724,6 +726,43 @@
     .mini-row { font-size: 0.78rem; }
     .final-cta { padding: 48px 20px; }
   }
+
+  /* ---- BOOKING CTAs (paid landing) ---- */
+  .hero h1.hero-h1 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    color: var(--accent);
+    line-height: 1.25;
+    max-width: 800px;
+    margin-bottom: 24px;
+  }
+  .hero p.hero-price { font-size: 1.05rem; color: var(--navy); margin: 20px 0 20px; }
+  .hero p.hero-price strong { font-weight: 700; }
+  .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-bottom: 14px; }
+  .hero-link { color: var(--navy); font-weight: 600; text-decoration: none; border-bottom: 1px solid currentColor; }
+  .hero-link:hover { color: var(--accent); }
+  .hero p.hero-micro { font-size: 0.92rem; color: var(--text-light); margin: 0; }
+  .nav-client-link { margin-left: 32px; }
+  .vv-card__cta-wrap { margin-top: auto; padding-top: 24px; }
+  .vv-card__cta-wrap .cta-btn { display: block; text-align: center; }
+  div.vv-widget__btn { cursor: default; }
+  .sticky-book { display: none; }
+  @media (max-width: 768px) {
+    .nav-client-link { margin-left: 0; }
+    .hero-cta .cta-btn { width: 100%; text-align: center; }
+    .sticky-book {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+      background: var(--white); border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+      transform: translateY(110%); transition: transform 0.25s;
+    }
+    .sticky-book.show { transform: translateY(0); }
+    .sticky-book .cta-btn { display: block; text-align: center; padding: 13px 16px; }
+    .sticky-book { display: block; }
+    body { padding-bottom: 76px; }
+  }
 </style>
 <!-- Google Ads tag + Calendly booking conversion -->
 <script>
@@ -742,8 +781,59 @@
     if (vvBooked || e.origin !== 'https://calendly.com') return;
     if (e.data && e.data.event === 'calendly.event_scheduled') {
       vvBooked = true;
-      gtag('event', 'conversion', {'send_to': VV_ADS_ID + '/' + VV_ADS_LABEL});  // value is set in Google Ads
+      var inv = (e.data.payload && e.data.payload.invitee && e.data.payload.invitee.uri) || '';
+      var params = {'send_to': VV_ADS_ID + '/' + VV_ADS_LABEL};  // value is set in Google Ads
+      if (inv) params.transaction_id = inv.split('/').pop();      // Calendly invitee id, for dedup/adjustments
+      gtag('event', 'conversion', params);
     }
+  });
+</script>
+<script>
+  // Booking buttons: open the Calendly popup on this page (so the conversion is tracked) and
+  // pass the Google Ads click id + keyword into Calendly so each booking can be matched to its ad.
+  var VV_CAL_URL = 'https://calendly.com/carlos-vistavitals/new-meeting';
+  var vvAttr = (function () {
+    var a = {};
+    try {
+      var p = new URLSearchParams(location.search), f = {};
+      ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term'].forEach(function (k) { if (p.get(k)) f[k] = p.get(k); });
+      if (f.gclid || f.gbraid || f.wbraid || f.utm_source) { f.ts = Date.now(); localStorage.setItem('vv_attr', JSON.stringify(f)); a = f; }
+      else { a = JSON.parse(localStorage.getItem('vv_attr') || '{}'); if (!a.ts || Date.now() - a.ts > 90 * 864e5) a = {}; }
+    } catch (err) { a = {}; }
+    return a;
+  })();
+  function vvUtm() {
+    var id = vvAttr.gclid || vvAttr.gbraid || vvAttr.wbraid || '', u = {};
+    var src = vvAttr.utm_source || (id ? 'google' : ''), med = vvAttr.utm_medium || (id ? 'cpc' : '');
+    if (src) u.utmSource = src;
+    if (med) u.utmMedium = med;
+    if (vvAttr.utm_campaign) u.utmCampaign = vvAttr.utm_campaign;
+    if (vvAttr.utm_term) u.utmTerm = vvAttr.utm_term;
+    if (id) u.utmContent = id;
+    return u;
+  }
+  function vvCalHref() {
+    var u = vvUtm(), q = [];
+    [['utm_source', 'utmSource'], ['utm_medium', 'utmMedium'], ['utm_campaign', 'utmCampaign'], ['utm_term', 'utmTerm'], ['utm_content', 'utmContent']].forEach(function (k) {
+      if (u[k[1]]) q.push(k[0] + '=' + encodeURIComponent(u[k[1]]));
+    });
+    return VV_CAL_URL + (q.length ? '?' + q.join('&') : '');
+  }
+  function vvBook(e) {
+    if (e) e.preventDefault();
+    var open = function () { Calendly.initPopupWidget({url: VV_CAL_URL, utm: vvUtm()}); };
+    if (window.Calendly) { open(); return false; }
+    // Calendly's script loads async: wait up to 3s, then fall back to a new tab (with the same tracking)
+    var t = 0, iv = setInterval(function () {
+      t += 100;
+      if (window.Calendly) { clearInterval(iv); open(); }
+      else if (t >= 3000) { clearInterval(iv); window.open(vvCalHref(), '_blank', 'noopener'); }
+    }, 100);
+    return false;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    var h = vvCalHref();
+    document.querySelectorAll('a.vv-book').forEach(function (a) { a.href = h; });
   });
 </script>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -763,19 +853,25 @@
   </button>
   <div class="nav-links">
     <a href="#tiers">Services</a>
-    <a href="#contact">Contact</a>
     <a href="#about">About</a>
-    <a href="https://clients.vistavitals.com" target="_blank" rel="noopener noreferrer" class="nav-portal-btn">Client Portal</a>
+    <a href="#contact">Contact</a>
+    <a href="https://clients.vistavitals.com" target="_blank" rel="noopener noreferrer" class="nav-client-link">Client Login</a>
+    <a href="https://calendly.com/carlos-vistavitals/new-meeting" class="nav-portal-btn vv-book" onclick="return vvBook(event)">Book a Discovery Call</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-tag">Your dedicated finance & accounting team</div>
-  <p class="hero-subhead">Financial clarity and streamlined accounting execution</p>
+  <h1 class="hero-h1">Outsourced bookkeeping and accounting for established businesses</h1>
   <p>We handle your bookkeeping, payroll, bill pay and reporting — end to end, every month. And when needed, we layer in cash flow forecasting, scenario modeling, and CFO-level guidance.</p>
-  <br>
   <p>We don't advise from the sidelines. Vista Vitals helps you solve today's problems and grow tomorrow's profits.</p>
+  <p class="hero-price"><strong>Bookkeeping from $750/month</strong> &middot; Strategic Finance from $2,000/month</p>
+  <div class="hero-cta" id="hero-cta">
+    <a href="https://calendly.com/carlos-vistavitals/new-meeting" class="cta-btn vv-book" onclick="return vvBook(event)">Book a Discovery Call</a>
+    <a href="#tiers" class="hero-link">See plans &amp; pricing</a>
+  </div>
+  <p class="hero-micro">20-minute call with Carlos Perez, Founder &middot; Fully remote, serving businesses across the U.S.</p>
 </section>
 
 <!-- PROBLEM -->
@@ -1031,6 +1127,7 @@
         <li>1099 filing including W-9 collection, preparation, and IRS e-filing</li>
       </ul>
       <p class="vv-addon-note">Add-ons are billed separately based on volume.</p>
+      <div class="vv-card__cta-wrap"><a href="https://calendly.com/carlos-vistavitals/new-meeting" class="cta-btn vv-book" onclick="return vvBook(event)">Book a Discovery Call</a></div>
     </div>
 
     <!-- TIER 2: STRATEGIC FINANCE -->
@@ -1059,6 +1156,7 @@
         <li>Collections &amp; cash conversion analysis</li>
         <li>Variance analysis with action commentary</li>
       </ul>
+      <div class="vv-card__cta-wrap"><a href="https://calendly.com/carlos-vistavitals/new-meeting" class="cta-btn vv-book" onclick="return vvBook(event)">Book a Discovery Call</a></div>
     </div>
 
     <!-- TIER 3: FRACTIONAL CFO -->
@@ -1074,11 +1172,11 @@
 
       <div class="vv-widget">
         <div class="vv-widget__label">Decisions on the table</div>
-        <button class="vv-widget__btn" type="button">→ Should we raise debt or equity next?</button>
-        <button class="vv-widget__btn" type="button">→ How do we price the new product line?</button>
-        <button class="vv-widget__btn" type="button">→ What does the board need to see this quarter?</button>
-        <button class="vv-widget__btn" type="button">→ Is our unit economics story investor-ready?</button>
-        <button class="vv-widget__btn" type="button">→ What terms should we push back on?</button>
+        <div class="vv-widget__btn">→ Should we raise debt or equity next?</div>
+        <div class="vv-widget__btn">→ How do we price the new product line?</div>
+        <div class="vv-widget__btn">→ What does the board need to see this quarter?</div>
+        <div class="vv-widget__btn">→ Is our unit economics story investor-ready?</div>
+        <div class="vv-widget__btn">→ What terms should we push back on?</div>
       </div>
 
       <div class="vv-section-label vv-section-label--feature">Everything in Strategic Finance, plus</div>
@@ -1095,6 +1193,7 @@
         <li>Live support through debt &amp; equity raises</li>
       </ul>
       <p class="vv-addon-note">Active capital raises are an add-on and billed separately.</p>
+      <div class="vv-card__cta-wrap"><a href="https://calendly.com/carlos-vistavitals/new-meeting" class="cta-btn vv-book" onclick="return vvBook(event)">Book a Discovery Call</a></div>
     </div>
 
   </div>
@@ -1208,7 +1307,7 @@
         <div class="vv-photo-wrap">
           <div class="vv-photo-ring"></div>
           <div class="vv-photo-frame">
-            <img class="vv-photo" src="/carlos-perez.jpeg" alt="Carlos Perez, Founder and CEO of Vista Vitals">
+            <img class="vv-photo" src="/carlos-perez.jpeg" alt="Carlos Perez, Founder and CEO of Vista Vitals" width="600" height="600" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="vv-name">Carlos Perez</div>
@@ -1248,8 +1347,9 @@
 
 <!-- FINAL CTA -->
 <section class="final-cta" id="contact">
-  <p>Get in touch to see if Vista Vitals is right for your business.</p>
-  <a href="https://calendly.com/carlos-vistavitals/new-meeting" class="cta-btn" onclick="if (window.Calendly) { Calendly.initPopupWidget({url: this.href}); return false; }">Schedule a Call</a>
+  <h2>See if we're the right fit</h2>
+  <p>Book a 20-minute discovery call with Carlos Perez, Founder. We'll talk through how your books run today, your monthly volume and what you need from your numbers. If we're a fit, we'll scope the work and send a written proposal with a fixed monthly fee.</p>
+  <a href="https://calendly.com/carlos-vistavitals/new-meeting" class="cta-btn vv-book" onclick="return vvBook(event)">Book a Discovery Call</a>
   <address class="contact-details">
     <a href="mailto:info@vistavitals.com">info@vistavitals.com</a><br>
     <a href="tel:+13053767192">(305) 376-7192</a><br>
@@ -1259,11 +1359,24 @@
 
 <!-- FOOTER -->
 <footer>
-  &copy; 2025 Vista Vitals LLC. All rights reserved. &nbsp;|&nbsp; info@vistavitals.com &nbsp;|&nbsp; <a href="tel:+13053767192">(305) 376-7192</a><br>
+  &copy; 2026 Vista Vitals LLC. All rights reserved. &nbsp;|&nbsp; <a href="/privacy">Privacy</a> &nbsp;|&nbsp; <a href="/terms">Terms</a> &nbsp;|&nbsp; info@vistavitals.com &nbsp;|&nbsp; <a href="tel:+13053767192">(305) 376-7192</a><br>
   1801 NE 123rd St, Suite 314, North Miami, FL 33181
 </footer>
 
+<div class="sticky-book" id="sticky-book" aria-hidden="true">
+  <a href="https://calendly.com/carlos-vistavitals/new-meeting" class="cta-btn vv-book" onclick="return vvBook(event)">Book a Discovery Call</a>
+</div>
+
 <script>
+  // Mobile: show a sticky booking bar once the hero button scrolls out of view (hidden again at the contact section)
+  (function () {
+    var bar = document.getElementById('sticky-book'), hero = document.getElementById('hero-cta'), contact = document.getElementById('contact');
+    if (!bar || !hero || !('IntersectionObserver' in window)) return;
+    var heroVisible = true, contactVisible = false;
+    function update() { var on = !heroVisible && !contactVisible; bar.classList.toggle('show', on); bar.setAttribute('aria-hidden', on ? 'false' : 'true'); }
+    new IntersectionObserver(function (es) { heroVisible = es[0].isIntersecting; update(); }).observe(hero);
+    if (contact) new IntersectionObserver(function (es) { contactVisible = es[0].isIntersecting; update(); }).observe(contact);
+  })();
   document.querySelector('.nav-toggle').addEventListener('click', function() {
     document.querySelector('.nav-links').classList.toggle('active');
   });
