@@ -746,6 +746,11 @@
   .hero-link:hover { color: var(--accent); }
   .hero p.hero-micro { font-size: 0.92rem; color: var(--text-light); margin: 0; }
   .nav-client-link { margin-left: 32px; }
+  .hero-rating { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 0.92rem; color: var(--text-light); text-decoration: none; }
+  .hero-rating strong { color: var(--navy); font-weight: 700; }
+  .hero-rating:hover span:last-child { color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+  .hero-rating__g { width: 16px; height: 16px; }
+  .hero-rating__stars { color: #F5B400; letter-spacing: 1px; font-size: 0.95rem; }
   .vv-pricing-cta { text-align: center; margin-top: 28px; }
   div.vv-widget__btn { cursor: default; }
   .sticky-book { display: none; }
@@ -873,6 +878,7 @@
     <a href="#tiers" class="hero-link">See plans &amp; pricing</a>
   </div>
   <p class="hero-micro">20-minute call with Carlos Perez, Founder &middot; Serving businesses across the U.S.</p>
+  <a class="hero-rating" href="#reviews"><svg class="hero-rating__g" aria-hidden="true"><use href="#vv-g"/></svg><span class="hero-rating__stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span><strong>5.0</strong> on Google &middot; Read client reviews</span></a>
 </section>
 
 <!-- PROBLEM -->
@@ -1235,6 +1241,180 @@
         <div class="pain-icon">&#10003;</div>
         <p>Then a clean monthly close, so you don't fall behind again.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT REVIEWS (quotes are verbatim excerpts from Google reviews) -->
+<section class="vv-reviews" id="reviews">
+  <style>
+    .vv-reviews{
+      --rv-navy:#1B2A4A; --rv-teal:#2E86AB; --rv-teal-soft:#8FCBE0; --rv-ink:#333D47; --rv-muted:#6B7685;
+      --rv-line:#E2E8F0; --rv-star:#F5B400;
+      background:#fff; border-top:1px solid var(--rv-line); border-bottom:1px solid var(--rv-line);
+      padding:clamp(3.5rem,7vw,6rem) clamp(1.25rem,4vw,2rem);
+      scroll-margin-top:80px;
+    }
+    .vv-reviews *{box-sizing:border-box;}
+    .vv-rv-wrap{max-width:1120px;margin:0 auto;}
+
+    /* header: title left, Google rating badge right */
+    .vv-rv-head{display:flex;justify-content:space-between;align-items:flex-end;gap:1.75rem 2.5rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+    .vv-rv-kicker{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--rv-teal);margin:0 0 12px;}
+    .vv-rv-h{font-family:'Instrument Serif',serif;font-weight:400;color:var(--rv-navy);
+      font-size:clamp(2rem,4vw,2.7rem);line-height:1.08;letter-spacing:-.01em;margin:0 0 .6rem;}
+    .vv-rv-h em{font-style:italic;color:var(--rv-teal);}
+    .vv-rv-sub{color:var(--rv-muted);font-size:1.02rem;margin:0;max-width:34rem;}
+
+    .vv-rv-badge{display:inline-flex;align-items:center;gap:14px;padding:14px 20px 14px 16px;border:1px solid var(--rv-line);
+      border-radius:14px;background:#fff;text-decoration:none;color:var(--rv-navy);
+      box-shadow:0 1px 2px rgba(27,42,74,.05),0 10px 28px -14px rgba(27,42,74,.25);
+      transition:transform .15s,box-shadow .2s,border-color .2s;}
+    .vv-rv-badge:hover{transform:translateY(-1px);border-color:#cfd8e3;
+      box-shadow:0 1px 2px rgba(27,42,74,.05),0 14px 32px -14px rgba(27,42,74,.32);}
+    .vv-rv-g{width:30px;height:30px;flex-shrink:0;}
+    .vv-rv-score{display:flex;align-items:center;gap:8px;line-height:1;}
+    .vv-rv-score strong{font-family:'Instrument Serif',serif;font-weight:400;font-size:1.9rem;color:var(--rv-navy);}
+    .vv-rv-count{display:block;font-size:.82rem;color:var(--rv-muted);margin-top:5px;}
+
+    .vv-stars{display:inline-flex;gap:2px;vertical-align:middle;}
+    .vv-stars svg{width:16px;height:16px;fill:var(--rv-star);}
+    .vv-stars.sm svg{width:14px;height:14px;}
+
+    /* featured review */
+    .vv-rv-feature{position:relative;margin:0;border-radius:20px;overflow:hidden;color:#fff;
+      padding:clamp(2.25rem,5vw,3.75rem) clamp(1.5rem,5.5vw,4.25rem);
+      background:
+        radial-gradient(640px 320px at 100% 0%,rgba(46,134,171,.42),transparent 62%),
+        radial-gradient(520px 300px at 0% 120%,rgba(46,134,171,.18),transparent 60%),
+        var(--rv-navy);}
+    .vv-rv-mark{position:absolute;top:clamp(.75rem,2vw,1.4rem);left:clamp(1rem,3vw,2.4rem);
+      font-family:'Instrument Serif',serif;font-size:clamp(7rem,13vw,10rem);line-height:1;color:var(--rv-teal-soft);opacity:.22;
+      pointer-events:none;user-select:none;}
+    .vv-rv-feature blockquote{position:relative;margin:0 0 2rem;max-width:56rem;
+      font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(1.45rem,2.7vw,2.1rem);line-height:1.32;letter-spacing:-.005em;}
+    .vv-rv-feature blockquote em{font-style:italic;color:var(--rv-teal-soft);}
+    .vv-rv-feature figcaption{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+    .vv-rv-feature .vv-rv-name{color:#fff;}
+    .vv-rv-feature .vv-rv-src{color:#AFC0D6;}
+
+    /* review cards */
+    .vv-rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px;}
+    .vv-rv-card{margin:0;display:flex;flex-direction:column;background:#FAFBFC;border:1px solid var(--rv-line);
+      border-radius:16px;padding:28px 28px 24px;transition:border-color .2s,box-shadow .2s,transform .15s;}
+    .vv-rv-card:hover{border-color:#cfd8e3;box-shadow:0 14px 30px -18px rgba(27,42,74,.28);transform:translateY(-2px);}
+    .vv-rv-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+    .vv-rv-card-top .vv-rv-g{width:18px;height:18px;}
+    .vv-rv-card blockquote{margin:0 0 24px;flex:1;font-size:1rem;line-height:1.65;color:var(--rv-ink);}
+    .vv-rv-card figcaption{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid var(--rv-line);}
+
+    .vv-rv-avatar{width:42px;height:42px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+      font-size:.85rem;font-weight:700;letter-spacing:.02em;color:#fff;background:var(--rv-navy);}
+    .vv-rv-avatar.teal{background:var(--rv-teal);}
+    .vv-rv-feature .vv-rv-avatar{width:48px;height:48px;background:var(--rv-teal);box-shadow:0 0 0 4px rgba(255,255,255,.08);}
+    .vv-rv-name{display:block;font-weight:600;color:var(--rv-navy);font-size:.98rem;line-height:1.3;}
+    .vv-rv-role{display:block;font-size:.85rem;color:var(--rv-muted);line-height:1.35;margin-top:1px;}
+    .vv-rv-feature .vv-rv-role{color:#C9D6E6;}
+    .vv-rv-feature .vv-rv-src{margin-top:6px;}
+    .vv-rv-src{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--rv-muted);margin-top:2px;}
+
+    /* link to every review */
+    .vv-rv-foot{text-align:center;margin-top:2.75rem;}
+    .vv-rv-all{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:1rem;color:var(--rv-navy);
+      text-decoration:none;padding:13px 26px;border:1.5px solid var(--rv-navy);border-radius:8px;transition:background .2s,color .2s;}
+    .vv-rv-all:hover{background:var(--rv-navy);color:#fff;}
+    .vv-rv-all .vv-rv-g{width:18px;height:18px;background:#fff;border-radius:50%;padding:1px;}
+    .vv-rv-all span[aria-hidden]{transition:transform .2s;}
+    .vv-rv-all:hover span[aria-hidden]{transform:translateX(3px);}
+
+    @media(max-width:900px){.vv-rv-grid{grid-template-columns:1fr;gap:16px;}}
+    @media(max-width:600px){
+      .vv-rv-head{margin-bottom:1.75rem;}
+      .vv-rv-badge{width:100%;}
+      .vv-rv-feature{padding-top:4.5rem;}
+      .vv-rv-mark{top:.4rem;left:1.1rem;font-size:6.5rem;}
+      .vv-rv-card{padding:24px 22px 20px;}
+      .vv-rv-all{width:100%;justify-content:center;}
+    }
+  </style>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="vv-star" viewBox="0 0 20 20"><path d="M10 1.4l2.63 5.33 5.87.86-4.25 4.14 1 5.85L10 14.82l-5.25 2.76 1-5.85L1.5 7.59l5.87-.86z"/></symbol>
+    <symbol id="vv-g" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></symbol>
+  </svg>
+
+  <div class="vv-rv-wrap">
+    <div class="vv-rv-head">
+      <div>
+        <p class="vv-rv-kicker">Client reviews</p>
+        <h2 class="vv-rv-h">In our clients&rsquo; <em>own words</em></h2>
+        <p class="vv-rv-sub">What the business owners we work with have shared on Google.</p>
+      </div>
+      <a class="vv-rv-badge" href="https://www.google.com/maps/place/Vista+Vitals/@25.8900551,-80.1621601,17z/data=!4m8!3m7!1s0x88d9b30bbb71f8f5:0x29112e321cf78ee4!8m2!3d25.8900551!4d-80.1621601!9m1!1b1!16s%2Fg%2F11zxylwkv0" target="_blank" rel="noopener noreferrer" aria-label="Rated 5.0 out of 5 from 8 Google reviews. Read them on Google.">
+        <svg class="vv-rv-g" aria-hidden="true"><use href="#vv-g"/></svg>
+        <span>
+          <span class="vv-rv-score"><strong>5.0</strong><span class="vv-stars" aria-hidden="true"><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg></span></span>
+          <span class="vv-rv-count">Based on 8 Google reviews</span>
+        </span>
+      </a>
+    </div>
+
+    <figure class="vv-rv-feature">
+      <span class="vv-rv-mark" aria-hidden="true">&ldquo;</span>
+      <blockquote>I was losing hours every week to categorizing transactions and reconciling statements. Carlos and his team onboarded me fast, get things done quickly, and <em>flag issues before I have to find them.</em></blockquote>
+      <figcaption>
+        <span class="vv-rv-avatar" aria-hidden="true">CA</span>
+        <span>
+          <span class="vv-rv-name">Cody Agee</span>
+          <span class="vv-rv-role">Chief Executive Officer / Owner</span>
+          <span class="vv-rv-src"><span class="vv-stars sm" role="img" aria-label="5 out of 5 stars"><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg></span>Google review</span>
+        </span>
+      </figcaption>
+    </figure>
+
+    <div class="vv-rv-grid">
+      <figure class="vv-rv-card">
+        <div class="vv-rv-card-top">
+          <span class="vv-stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg></span>
+          <svg class="vv-rv-g" aria-hidden="true"><use href="#vv-g"/></svg>
+        </div>
+        <blockquote>John, Carlos and the team have taken so much of the day-to-day financial work off our plate including our bookkeeping and bill pay. We&rsquo;ve had an excellent experience with Vista Vitals.</blockquote>
+        <figcaption>
+          <span class="vv-rv-avatar teal" aria-hidden="true">KZ</span>
+          <span><span class="vv-rv-name">Karla Zurita</span><span class="vv-rv-role">Founding Director</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="vv-rv-card">
+        <div class="vv-rv-card-top">
+          <span class="vv-stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg></span>
+          <svg class="vv-rv-g" aria-hidden="true"><use href="#vv-g"/></svg>
+        </div>
+        <blockquote>Carlos and the team took over our accounting and made the entire bookkeeping process more organized and efficient. Their CFO support has been equally valuable as we work through bigger business decisions.</blockquote>
+        <figcaption>
+          <span class="vv-rv-avatar" aria-hidden="true">IR</span>
+          <span><span class="vv-rv-name">Ivan Rumbea</span><span class="vv-rv-role">Chief Operating Officer</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="vv-rv-card">
+        <div class="vv-rv-card-top">
+          <span class="vv-stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg><svg><use href="#vv-star"/></svg></span>
+          <svg class="vv-rv-g" aria-hidden="true"><use href="#vv-g"/></svg>
+        </div>
+        <blockquote>They keep our financials organized, with statements readily available whenever we need them. My favorite feature is their client portal, which allows me to ask questions or answer theirs with ease.</blockquote>
+        <figcaption>
+          <span class="vv-rv-avatar teal" aria-hidden="true">AG</span>
+          <span><span class="vv-rv-name">Angie Gomez</span><span class="vv-rv-role">Business Development Manager</span></span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="vv-rv-foot">
+      <a class="vv-rv-all" href="https://www.google.com/maps/place/Vista+Vitals/@25.8900551,-80.1621601,17z/data=!4m8!3m7!1s0x88d9b30bbb71f8f5:0x29112e321cf78ee4!8m2!3d25.8900551!4d-80.1621601!9m1!1b1!16s%2Fg%2F11zxylwkv0" target="_blank" rel="noopener noreferrer">
+        <svg class="vv-rv-g" aria-hidden="true"><use href="#vv-g"/></svg>
+        Read all our reviews on Google <span aria-hidden="true">&rarr;</span>
+      </a>
     </div>
   </div>
 </section>
