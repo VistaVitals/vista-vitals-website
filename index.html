@@ -55,8 +55,9 @@
   }
   .logo {
     display: inline-flex;
-    align-items: center;
-    line-height: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
     text-decoration: none;
     margin-left: -2px;
   }
@@ -65,6 +66,18 @@
     height: 40px;
     width: auto;
     max-width: 100%;
+  }
+  /* slogan under the logo, sized to the logo's width (18.8px at a 40px logo, 15px at 32px) */
+  .logo-tag {
+    display: block;
+    margin-top: 10px;
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 18.8px;
+    letter-spacing: 0.005em;
+    color: var(--accent);
+    white-space: nowrap;
   }
   .nav-links {
     display: flex;
@@ -117,17 +130,6 @@
     max-width: 1120px;
     margin: 0 auto;
     padding: 80px 32px 60px;
-  }
-  .hero-tag {
-    display: block;
-    font-family: 'Instrument Serif', serif;
-    font-weight: 400;
-    font-size: clamp(2rem, 4vw, 3rem);
-    color: var(--navy);
-    line-height: 1.1;
-    max-width: 800px;
-    margin-bottom: 20px;
-    letter-spacing: -0.01em;
   }
   .hero p.hero-subhead {
     font-family: 'Instrument Serif', serif;
@@ -689,11 +691,12 @@
   @media (max-width: 768px) {
     nav { padding: 20px 20px; }
     .logo img { height: 32px; }
+    .logo-tag { font-size: 15px; margin-top: 8px; }
     .nav-toggle { display: block; }
     .nav-links {
       display: none;
       position: absolute;
-      top: 68px;
+      top: 92px;
       left: 0;
       right: 0;
       background: var(--white);
@@ -733,12 +736,14 @@
   .hero h1.hero-h1 {
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
-    font-size: clamp(1.5rem, 3vw, 2.1rem);
-    color: var(--accent);
-    line-height: 1.25;
-    max-width: 800px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--navy);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    max-width: 880px;
     margin-bottom: 24px;
   }
+  .hero h1.hero-h1 .h1-accent { color: var(--accent); }
   .hero p.hero-price { font-size: 1.05rem; color: var(--navy); margin: 20px 0 20px; }
   .hero p.hero-price strong { font-weight: 700; }
   .hero-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-bottom: 14px; }
@@ -851,6 +856,7 @@
 <nav>
   <a href="/" class="logo" aria-label="Vista Vitals home">
     <img src="/vistavitals-logo.png" alt="Vista Vitals" width="271" height="40">
+    <span class="logo-tag">Your trusted finance &amp; accounting team</span>
   </a>
   <button class="nav-toggle" aria-label="Toggle navigation">
     <span></span>
@@ -868,8 +874,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-tag">Your trusted finance & accounting team</div>
-  <h1 class="hero-h1">Bookkeeping, accounting and fractional CFO services for small and mid-sized businesses</h1>
+  <h1 class="hero-h1">Bookkeeping, accounting and fractional CFO services <span class="h1-accent">for small and mid-sized businesses</span></h1>
   <p>We handle your bookkeeping, payroll, bill pay and reporting — end to end, every month. And when needed, we take on CFO-level work: we run the analysis and navigate through the big decisions with you.</p>
   <p>We don't advise from the sidelines. Vista Vitals helps you solve today's problems and grow tomorrow's profits.</p>
   <p class="hero-price"><strong>Bookkeeping from $1,000/month</strong> &middot; Strategic Finance from $2,000/month</p>
